@@ -7,11 +7,17 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import cartoontv from 'components/cartoontv.vue'
+import movielist from 'components/movielist.vue'
+import seriallist from 'components/seriallist.vue'
+export default {
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+	cartoontv,
+	movielist,
+	seriallist
   }
 }
 </script>

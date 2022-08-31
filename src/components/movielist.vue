@@ -6,4 +6,12 @@
 </script>
 
 <style>
+	export default{
+		name:'movielist',
+		data(){
+		},
+		methods:{
+		}
+		
+	}
 </style>

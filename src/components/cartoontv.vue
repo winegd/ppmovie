@@ -6,4 +6,12 @@
 </script>
 
 <style>
+	export default{
+		name:'cartoontx',
+		data(){
+		},
+		methods:{
+		}
+		
+	}
 </style>

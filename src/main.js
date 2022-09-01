@@ -6,6 +6,7 @@ import Router from 'vue-router'
 import Main from './components/Main.vue'
 import Lunbo from './components/Lunbo.vue'
 import login from './components/login.vue'
+import register from './components/register.vue'
 import cartoontv from './components/cartoontv.vue'
 import movielist from './components/movielist.vue'
 import seriallist from './components/seriallist.vue'
@@ -41,7 +42,8 @@ const routes = [
 		]
 	},
 	{path:'/', redirect:'/main'},
-	{path:'/login',component:login}
+	{path:'/login',component:login},
+	{path:'/register',component:register}
 ]
 const router = new Router({
 	routes

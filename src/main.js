@@ -7,6 +7,8 @@ import Main from './components/Main.vue'
 import Lunbo from './components/Lunbo.vue'
 import login from './components/login.vue'
 import cartoontv from './components/cartoontv.vue'
+import movielist from './components/movielist.vue'
+import seriallist from './components/seriallist.vue'
 Vue.config.productionTip = false
 Vue.use(Router)
 
@@ -17,7 +19,15 @@ const routes = [
 		children:[
 			{
 			 path:'/',
-			 component:Lunbo
+			 component:cartoontv
+			},
+			{
+				path:'/movie',
+				component:movielist
+			},
+			{
+				path:'/serial',
+				component:seriallist
 			}
 		]
 	},

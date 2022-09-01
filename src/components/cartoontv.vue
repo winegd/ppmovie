@@ -1,12 +1,10 @@
 <!-- 动漫推荐 -->
 <template>
-	<div style="margin-left: 20%;">
-		<el-tabs class="tab-active" type="card">
+	<div>
+		<el-tabs class="tab-active">
 			<el-tab-pane label="电影首页" name="first">
 				<div class='first'>
-						<div class="ziti">
-						今日推荐
-						</div>
+						<div class="ziti">今日推荐</div>
 					<div v-for="l in lis" style='margin-top:40px'>
 						<div class="div1">
 							<a href="../" style="text-decoration:none;">
@@ -138,8 +136,8 @@
 	}
 	
 	.tab-active {
-		color: white ;
-		background-color: #35a121;
+		/* color: white ; */
+		/* background-color: #35a121; */
 	}
 	
 	.ziti {

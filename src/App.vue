@@ -12,7 +12,7 @@ import cartoontv from './components/cartoontv.vue'
 import movielist from './components/movielist.vue'
 import seriallist from './components/seriallist.vue'
 import lunbo from './components/Lunbo.vue'
-
+import register from './components/register.vue'
 import login from './components/login.vue'
 
 export default {
@@ -22,7 +22,8 @@ export default {
 	cartoontv,
 	movielist,
 	seriallist,
-	login
+	login,
+	register
 
   }
 }

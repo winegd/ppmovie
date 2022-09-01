@@ -19,7 +19,7 @@ const routes = [
 		children:[
 			{
 			 path:'/',
-			 component:cartoontv
+			 component:Lunbo
 			},
 			{
 				path:'/movie',

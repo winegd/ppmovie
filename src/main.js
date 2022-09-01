@@ -5,6 +5,7 @@ import App from './App.vue'
 import Router from 'vue-router'
 import Main from './components/Main.vue'
 import Lunbo from './components/Lunbo.vue'
+import Xiangqing from './components/Xiangqing.vue'
 Vue.config.productionTip = false
 Vue.use(Router)
 
@@ -15,8 +16,12 @@ const routes = [
 		children:[
 			{
 			 path:'/',
-			 component:Lunbo
-			}
+			 component:Xiangqing
+			},
+			{
+			 path:'/xq',
+			 component:Xiangqing
+			},
 		]
 	},
 	{path:'/', redirect:'/main'}

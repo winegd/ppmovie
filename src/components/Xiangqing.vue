@@ -1,0 +1,158 @@
+<template>
+	<div  style="width: 100%; background-color:#F5F5F5;height: 100%;display: flex;flex-direction: column;align-items:flex-start">
+		<div  class="box1">
+			<img style="height: 400px;padding-top: 50px;border-radius: 15px;" src="../assets/0.png">
+			<div id="container" >
+				<h2 style="text-align: left;height: 28px;">{{moviename}}</h2>
+				<div style="display: flex; flex-direction: row;">
+					  <div id="flex"><span>{{year}}</span></div>
+					  <div id="flex"> <span>{{country}}</span></div>
+					  <div id="flex"> <span>{{type}}</span></div>
+				</div> 
+				<div id="div1" >
+				<p>{{detail}}</p>
+				<hr class="hr1">
+				<p style="font-weight: bolder ;">上映年份:</p>
+				<p>{{year}}</p>
+				<p style="font-weight: bolder ;">导演:</p>
+				<p>{{director}}</p>
+				<p style="font-weight: bolder ;">主演:</p>
+				<p>{{actor}}</p>
+				<p style="font-weight: bolder ;">更新时间:</p>
+				<p>{{update}}</p>
+				<div class="img">
+					<el-row>
+				<el-button id="button1" @click="show" style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
+					<i class="el-icon-caret-right" style="color: white;" >播放</i>
+				</el-button>
+				</el-row>
+				</div>
+				
+			</div>
+			</div>			
+		</div>
+		
+		<div >
+			<h2>选集播放</h2>
+	        <div id="select">
+	        	<div v-for="item in datalist">
+					  <el-button style="width: 100px">{{item}}</el-button></div>
+		    </div> 
+		</div>
+	
+		</div>
+
+	</div>
+</template>
+<script>
+	export default{
+		name:"xiangqing",
+		data(){
+			return{
+				moviename:"长津湖",
+				detail:"电影以抗美援朝战争第二次战电影以抗美援朝战争第二次战役中的长津湖战役为背景，讲述了在结束了新兴里和下碣隅里的战斗之后，七连战士们电影以抗美援朝战争第二次战役中的长津湖战役为背景，讲述了在结束了新兴里和下碣隅里的战斗之后，七连战士们役中的长津湖战役为背景，讲述了在结束了新兴里和下碣隅里的战斗之后，七连战士们又接到了更艰巨的任务……",
+				year:"",
+				country:"",
+				director:"",
+				actor:"",
+				update:"",
+				// language:"",
+				type:"",
+				datalist:[],
+				data:{}
+			}
+		},
+		methods:{
+				
+		},
+		mounted(){
+			axios('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',{
+				headers:{
+					'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"1606697250632532718583809","bc":"440100"}',
+					'X-Host': 'mall.film-ticket.film.list'
+				}
+			}).then(res=>{
+					this.data = res.data.data
+					console.log(this.data)
+			})
+		}
+		 
+	}
+</script>
+
+<style>
+	.box1{
+		background-color:#F5F5F5;
+		height: 500px;
+		display: flex;
+		flex-direction: row;
+		border:10px white solid;
+		border-radius: 5%;
+	}
+	   #button1 {  display: flex;  align-items: center;  justify-content: center;  height: 10 vh;  background: #1c2541;}
+		button {  border: white;  background: transparent;  text-transform: uppercase;  color: white;  padding: 15px 50px;  outline: none;  overflow: hidden;  position: relative;}
+		span {  z-index: 20;  }
+		button:after {  content: '';    display: block;    position: absolute;    top:  -36px;    left: -100px;    background: white;    width: 50px;    height: 125px;    opacity: 20%;    transform: rotate(-45deg);}
+		button:hover:after {  left: 120%;  transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);   -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);}
+	   #container{
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		border: 1px solid white;
+		padding:20px;
+		margin-top: 30px;
+		border-radius: 6%;
+		background-color:white;
+		width: auto;
+		height: 400px;
+	}
+	  #flex{
+		  border: 1px solid white;
+		  padding:5px;
+		  margin: 8px;
+		  border-radius: 20%;
+		  background-color:whitesmoke
+	  }
+	  #select{
+		  display: flex; 
+		  flex-direction: row;
+		  justify-content: space-between;
+		  color: #FFFFFF;
+		  flex-wrap: wrap;
+		  align-items:100px;
+	  }
+	  #select:after{
+	      content: '';
+	      width: 30%;
+	      border:1px solid transparent;
+	    }
+
+	  #div1{
+	  	width: 900px;
+	  	height: 300px;
+	  	background-color: white;
+		    /* margin-top: 20px; */
+		    /* background: white; */
+		    /* display: inline-block; */
+		    text-align: left;
+
+	  }
+	 .hr1{
+		     border: 0;
+		     	padding-top: 1px;
+		     	background: repeating-linear-gradient(
+		     		to right,
+				
+		     		#a2a9b6 0px,
+		     		#a2a9b6 4px,
+		     		transparent 0px,
+		     		transparent 10px
+		     	)
+				
+		 }
+		 #button1{
+			 border: white;
+		 }
+		 
+		
+</style>

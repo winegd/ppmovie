@@ -9,18 +9,18 @@
 import Xiangqing from './components/Xiangqing.vue'
 
    
-// import Main from './components/Main.vue'
+import Main from './components/Main.vue'
 
 import cartoontv from './components/cartoontv.vue'
 import movielist from './components/movielist.vue'
 import seriallist from './components/seriallist.vue'
-// import lunbo from './components/Lunbo.vue'
+import lunbo from './components/Lunbo.vue'
 
 
 export default {
   name: 'app',
   components: {
-	// Main,
+	Main,
 	cartoontv,
 	movielist,
 	seriallist,

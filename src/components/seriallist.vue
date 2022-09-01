@@ -3,9 +3,6 @@
 </template>
 
 <script>
-</script>
-
-<style>
 	export default{
 		name:'seriallist',
 		data(){
@@ -14,4 +11,8 @@
 		}
 		
 	}
+</script>
+
+<style>
+
 </style>

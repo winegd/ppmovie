@@ -2,7 +2,7 @@
 <template>
 	<div>
 		<el-tabs v-model="activeName" class="tab-active">
-			<el-tab-pane label="电视剧首页" name="first" selected>
+			<el-tab-pane label="综艺首页" name="first" selected>
 				<div class='first'>
 						<div class="ziti">今日推荐</div>
 					<div v-for="l in lis" style='margin-top:40px'>
@@ -20,7 +20,7 @@
 				</div>
 				<div class='second'>
 						<div class="ziti">
-						热门电视剧
+						热门综艺
 						</div>
 												<div>sss</div>
 					<div v-for="l in lis" style='margin-top:40px'>
@@ -37,7 +37,7 @@
 						</div>
 				</div>
 			</el-tab-pane>
-			<el-tab-pane label="电视剧库" name="second">
+			<el-tab-pane label="综艺库" name="second">
 				<div v-for="l in lis">
 					<div class="div1">
 						<a href="../" style="text-decoration:none;">
@@ -57,7 +57,7 @@
 
 <script>
 	export default {
-		name: 'seriallist',
+		name: 'relax',
 		data() {
 			return {
 				activeName: 'first',

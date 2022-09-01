@@ -1,7 +1,7 @@
 <!-- 动漫推荐 -->
 <template>
 	<div>
-		<el-tabs class="tab-active">
+		<el-tabs v-model="activeName" class="tab-active">
 			<el-tab-pane label="电影首页" name="first">
 				<div class='first'>
 						<div class="ziti">今日推荐</div>
@@ -60,6 +60,7 @@
 		name: 'movielist',
 		data() {
 			return {
+				activeName:'first',
 				lis: [{
 						src: require('../assets/0.jpeg'),
 						name: 'ss'

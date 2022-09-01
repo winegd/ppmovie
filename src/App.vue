@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+	<cartoontv></cartoontv>
+	 <!-- <router-view></router-view> -->
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import cartoontv from 'components/cartoontv.vue'
-import movielist from 'components/movielist.vue'
-import seriallist from 'components/seriallist.vue'
-export default {
+import cartoontv from './components/cartoontv.vue'
+import movielist from './components/movielist.vue'
+import seriallist from './components/seriallist.vue'
 export default {
   name: 'app',
   components: {
@@ -18,7 +19,8 @@ export default {
 	cartoontv,
 	movielist,
 	seriallist
-  }
+  },
+	  
 }
 </script>
 

@@ -6,7 +6,12 @@
     </el-carousel-item>
   </el-carousel>
   <h2 style="text-align: left;" >正在热映</h2>	
-		
+		<el-row :gutter="20">
+		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+		</el-row>
 	</div>
 
 </template>

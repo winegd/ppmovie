@@ -22,7 +22,7 @@
 				<p>{{update}}</p>
 				<div class="img">
 					<el-row>
-				<el-button id="button1" @click="show" style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
+				<el-button id="button1" @click="show()" style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
 					<i class="el-icon-caret-right" style="color: white;" >播放</i>
 				</el-button>
 				</el-row>
@@ -32,20 +32,24 @@
 			</div>			
 		</div>
 		
-		<div >
-			<h2>选集播放</h2>
-	        <div id="select">
-	        	<div v-for="item in datalist">
-					  <el-button style="width: 100px">{{item}}</el-button></div>
+		
+			<h2 style="margin: 8px;" >选集播放</h2>
+	        <div id="select" >
+	        	<div  v-for="(item,index) in datalist">
+					<a :href="item" target="_blank" >
+						<el-button  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
+					</a>
+				</div>
 		    </div> 
-		</div>
+
 	
 		</div>
 
 	</div>
 </template>
 <script>
-	import axios from 'axios'
+	import $ from "jquery"
+	import axios from "axios"
 	export default{
 		name:"xiangqing",
 		data(){
@@ -59,23 +63,51 @@
 				update:"",
 				// language:"",
 				type:"",
-				datalist:[],
+				//datalist:['https://s7.fsvod1.com/share/9KfxI1LpjNXphtC2'],
+				datalist:[1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,],
 				data:{}
 			}
 		},
 		methods:{
-				
+				show(){
+					
+				}
 		},
 		mounted(){
-			axios('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',{
-				headers:{
-					'Referer': 'http://fszy1.com/vod/detail/id/145/',
-					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.70'
-				}
-			}).then(res=>{
-					//this.data = res.data.data
-					console.log(res.data)
-			})
+			// axios('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',{
+			// 	headers:{
+			// 			'Accept': 'application/json, text/javascript, */*; q=0.01',
+			// 			'Accept-Encoding': 'gzip, deflate',
+			// 			'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
+			// 			'Connection': 'keep-alive',
+			// 			'Cookie': '__51uvsct__JdYOsqRHv5dridaI=1; __51vcke__JdYOsqRHv5dridaI=82df3718-b7e4-58ba-8b80-cf067142837c; __51vuft__JdYOsqRHv5dridaI=1662043819368; __vtins__JdYOsqRHv5dridaI=%7B%22sid%22%3A%20%2289917598-1b56-50cd-8a78-ed1d8702353c%22%2C%20%22vd%22%3A%202%2C%20%22stt%22%3A%2018661%2C%20%22dr%22%3A%2018661%2C%20%22expires%22%3A%201662045638022%2C%20%22ct%22%3A%201662043838022%7D',
+			// 			'Host': 'fszy1.com',
+			// 			'Referer': 'http://fszy1.com/vod/detail/id/191/',
+			// 			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.70',
+			// 			'X-Requested-With': 'XMLHttpRequest'
+			// 		}
+			// }).then(res=>{
+			// 		//this.data = res.data.data
+			// 		console.log(res.data)
+			// })
+			
+			// this.$http.get('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145', ).then(
+			// res=>{
+			// 		//this.data = res.data.data
+			// 		console.log(res.data)
+			//  },
+			//  res=>{
+			// 	 console.log('访问失败')
+			//  }
+			// );
+			// $.ajax({
+			// 	url: 'https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',
+			// 	type: 'get',
+			// 	success(res) {
+			// 		console.log(res);
+			// 	}
+			// });
+
 		}
 		 
 	}
@@ -117,10 +149,14 @@
 	  #select{
 		  display: flex; 
 		  flex-direction: row;
-		  justify-content: space-between;
+		  /* s */
 		  color: #FFFFFF;
 		  flex-wrap: wrap;
 		  align-items:100px;
+	  }
+	  #select::after{
+		  content: "";
+		  flex: auto;
 	  }
 	  #select:after{
 	      content: '';

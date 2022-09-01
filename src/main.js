@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// import VueResource from 'vue-resource'
+// Vue.use(VueResource)
 import App from './App.vue'
 import Router from 'vue-router'
 import Main from './components/Main.vue'

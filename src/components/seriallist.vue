@@ -5,7 +5,7 @@
 			<el-tab-pane label="电视剧首页" name="first" selected>
 				<div class='first'>
 						<div class="ziti">今日推荐</div>
-					<div v-for="item in seriallist" style='margin-top:40px' :key="item.filmId">
+					<div v-for="item in seriallist" style='margin-top:20px' :key="item.filmId">
 						<div class="div1">
 							<a href="../" style="text-decoration:none;">
 								<div class="div2">
@@ -22,8 +22,7 @@
 						<div class="ziti">
 						热门电视剧
 						</div>
-												<div>sss</div>
-					<div v-for="item in seriallist" style='margin-top:40px' :key='item.filmId'>
+					<div v-for="item in seriallist" style='margin-top:20px' :key='item.filmId'>
 						<div class="div1">
 							<a href="../" style="text-decoration:none;">
 								<div class="div2">

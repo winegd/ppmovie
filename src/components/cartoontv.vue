@@ -22,7 +22,6 @@
 					<div class="ziti">
 						热门电影
 					</div>
-					<div>sss</div>
 					<div v-for="item in cartoontvList" style='margin-top:40px'>
 						<div class="div1">
 							<a href="../" style="text-decoration:none;">

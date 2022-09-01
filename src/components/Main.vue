@@ -100,12 +100,18 @@
 			},
 			menuSelect(key,keyPath){
 				if(key==1){
-					// this.$router.push({path:'/biaoqing2'})
+					 this.$router.push({path:'/'})
 				}
 				else if(key==2){
-					// this.$router.push({path:'/ikun'})
+					 this.$router.push({path:'/movie'})
 				}else if(key==3){
-					// this.$router.push({path:'/biaoqing'})
+					 this.$router.push({path:'/serial'})
+				}
+				else if(key==4){
+					 this.$router.push({path:'/relax'})
+				}
+				else if(key==5){
+					 this.$router.push({path:'/cartoon'})
 				}
 			}
 		}

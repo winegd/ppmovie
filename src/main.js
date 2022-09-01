@@ -6,6 +6,10 @@ import Router from 'vue-router'
 import Main from './components/Main.vue'
 import Lunbo from './components/Lunbo.vue'
 import login from './components/login.vue'
+import cartoontv from './components/cartoontv.vue'
+import movielist from './components/movielist.vue'
+import seriallist from './components/seriallist.vue'
+import relax from './components/relax.vue'
 Vue.config.productionTip = false
 Vue.use(Router)
 
@@ -17,6 +21,22 @@ const routes = [
 			{
 			 path:'/',
 			 component:Lunbo
+			},
+			{
+				path:'/movie',
+				component:movielist
+			},
+			{
+				path:'/serial',
+				component:seriallist
+			},
+			{
+				path:'/cartoon',
+				component:cartoontv
+			},
+			{
+				path:'/relax',
+				component:relax
 			}
 		]
 	},

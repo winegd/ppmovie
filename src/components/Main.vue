@@ -7,7 +7,10 @@
 			  <el-col :span="2"><div><img  src="../assets/icon/logo1.png" /></div></el-col>
 			  <el-col :span="2">
 				  <div>
-					  <el-button class="login-button" icon="el-icon-s-custom">登录/注册</el-button>
+					 <router-link to='/login'>
+						<el-button class="login-button" icon="el-icon-s-custom">登录/注册</el-button> 
+					 </router-link>
+					  
 					</div>
 				</el-col>
 			</el-row>	

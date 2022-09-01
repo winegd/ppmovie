@@ -5,6 +5,7 @@ import App from './App.vue'
 import Router from 'vue-router'
 import Main from './components/Main.vue'
 import Lunbo from './components/Lunbo.vue'
+import login from './components/login.vue'
 Vue.config.productionTip = false
 Vue.use(Router)
 
@@ -19,7 +20,8 @@ const routes = [
 			}
 		]
 	},
-	{path:'/', redirect:'/main'}
+	{path:'/', redirect:'/main'},
+	{path:'/login',component:login}
 ]
 const router = new Router({
 	routes

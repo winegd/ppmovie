@@ -13,6 +13,7 @@ import movielist from './components/movielist.vue'
 import seriallist from './components/seriallist.vue'
 import lunbo from './components/Lunbo.vue'
 
+import login from './components/login.vue'
 
 export default {
   name: 'app',
@@ -20,7 +21,8 @@ export default {
 	Main,
 	cartoontv,
 	movielist,
-	seriallist
+	seriallist,
+	login
 
   }
 }

@@ -1,11 +1,14 @@
 <template>
   <div id="app">
+
 	<router-view></router-view>
   </div>
 </template>
 
 <script>
+import Xiangqing from './components/Xiangqing.vue'
 
+   
 import Main from './components/Main.vue'
 
 import cartoontv from './components/cartoontv.vue'
@@ -13,7 +16,6 @@ import movielist from './components/movielist.vue'
 import seriallist from './components/seriallist.vue'
 import lunbo from './components/Lunbo.vue'
 
-import login from './components/login.vue'
 
 export default {
   name: 'app',
@@ -22,7 +24,7 @@ export default {
 	cartoontv,
 	movielist,
 	seriallist,
-	login
+	Xiangqing
 
   }
 }

@@ -1,84 +1,98 @@
 <template>
-	<div id='building'>
-		<div>
-	<el-container append-to-body="true">
-	  <el-header>
-		  南瓜电影-只为“影视发烧友”而生，就要给你好看
-		  <br>
-	  </el-header>
-	  <el-container>
-	    <el-aside width="20%">
-			<div class="demo-image">
-			  <div class="block" v-for="fit in fits" :key="fit">
-			    <span class="demonstration">{{ fit }}</span>
-			    <el-image
-			      style="width: 100px; height: 200px"
-			      :src="url"
-			      :fit="fit"></el-image>
-			  </div>
-			</div>
-		</el-aside>
-	    <el-container>
-	      <el-main>
-			  <el-form ref="form"  label-width="100px" >
-			  	 <el-form-item label="手机号" label-width="20%">
-			  	    <el-input v-model="uname"></el-input>
-			  	</el-form-item>
-			  
-			  	 <el-form-item label="密码" label-width="20%">
-			  	    <el-input type="password" v-model="password"></el-input>
-			  	</el-form-item>
-				 <el-form-item label="确认密码" prop="checkPass" label-width="20%">
-				    <el-input type="password" v-model="checkPass"></el-input>
-				  </el-form-item>
-				  <span data-v-e875c490="" error-tel-block="手机号不能为空，请输入手机号！" error-tel="密码或账号错误！" error-code-block="密码不能为空，请输入密码！" class="login-error">手机号不能为空，请输入手机号！</span>
-			  	<el-form-item label-width="20%">
-			  		<el-button type="primary" round @click=" login()">登录</el-button>
-					<el-button type="primary" round @click=" register()">注册</el-button>
-			  	</el-form-item>
-				<el-form-item label-width="20%">
-					<el-button type="primary" @click=" login()">登录</el-button>
-				</el-form-item>
-			  </el-form>
-		  </el-main>
-	      <el-footer>如遇任何问题, 请关注微信公众号"南瓜电影服务"并留言 登录即表示您同意</el-footer>
-	    </el-container>
-	  </el-container>
-	</el-container>
-		</div>
-	</div>
-
+	<body id="poster">
+		<el-form class="login-container" label-position="left" label-width="0px">
+			<h3 class="login_title">
+				用户登录
+			</h3>
+		  <el-form-item label="">
+		    <el-input 
+			type="text" 
+			v-model="loginForm.loginName" 
+			auto-complete="off" 
+			placeholder="请输入用户账号"
+			prefix-icon="el-icon-s-custom"
+			></el-input>
+		  </el-form-item>
+		  <el-form-item label="">
+		    <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="请输入密码"></el-input>
+		  </el-form-item>
+		  <el-form-item>
+			  <el-button style="width:100%;" @click="toRegister()">立即注册</el-button>
+		  </el-form-item>
+		  <el-form-item>
+		   <el-button  type="primary" style="width: 100%;background-image:linear-gradient(to right,#59C2FD, #2B99FF);border:none;" @click="login()">登录</el-button>
+		  </el-form-item>
+		</el-form>
+	</body>
 </template>
 
 <script>
 	export default{
-		name:"login",
-		data(){
-			return{
-				uname:"",
-				password:'',
-				checkPass:'',
-				fits: [''],
-				url: 'https://s.image.vcinema.com.cn/doras_web/imgs/2.0.0/logo-about.jpeg',
-			}
-		},
-		methods:{
-			login(){
-				this.$router.push({path:"/register"})
-			}
-			
-		}
+		name:'login',
+		data() {
+		      return {
+				  loginForm:{
+		          loginName:'',
+		          password: '',
+		        }
+		      }
+		    },
+		    methods: {
+				submitForm(loginForm){
+					if(loginForm.loginName==''){
+							this.$message({
+								message: '请输入用户账号',
+								type: 'error'
+								}); 
+				}
+/* 				this.$message({
+				          message: '恭喜你，登录成功',
+				          type: 'success'
+				        }); */
+					
+				},
+		      login() {
+		        console.log('submit!',this.loginForm);
+								this.$message({
+								          message: '恭喜你，登录成功',
+								          type: 'success'
+								        });
+					this.$router.push({path:'/Main'})
+		      },
+			  toRegister(){
+				  this.$router.push({path:'/register'})
+			  }
+		    }
 	}
 </script>
 
 <style>
-	#building{
-	  background:url("");
-	  width:100%;
-	  height:100%;
-	  position:fixed;
-	  background-size:100% 100%;
+	#poster{
+		background-position: center;
+		height: 100%;
+		width: 100%;
+		background-size: cover;
+		background-image: linear-gradient(to right,#00ffff, #aaffff);
+		position: fixed;
 	}
-
-
+	body{
+		margin: 0px;
+		padding: 0px;
+		
+	}
+	.login-container{
+		border-radius: 15px;
+		background-clip: padding-box;
+		margin: 90px auto;
+		width: 350px;
+		padding: 35px 35px 15px 35px;
+		background: #61dafb;
+		border: 1px solid #eaeaea;
+		box-shadow: 0 0 25px #cac6c6;
+	}
+	.login_title{
+		margin: 0px auto 40px auto;
+		text-align: center;
+		color: #505458;
+	}
 </style>

@@ -6,6 +6,7 @@ import Router from 'vue-router'
 import Main from './components/Main.vue'
 import Lunbo from './components/Lunbo.vue'
 import login from './components/login.vue'
+import cartoontv from './components/cartoontv.vue'
 Vue.config.productionTip = false
 Vue.use(Router)
 

@@ -1,7 +1,7 @@
 <!-- 动漫推荐 -->
 <template>
 	<div style="margin-left: 20%;">
-		<el-tabs type="card">
+		<el-tabs class="tab-active" type="card">
 			<el-tab-pane label="电影首页" name="first">
 				<div class='first'>
 						<div class="ziti">
@@ -59,7 +59,7 @@
 
 <script>
 	export default {
-		name: 'cartoontx',
+		name: 'cartoontv',
 		data() {
 			return {
 				lis: [{
@@ -123,7 +123,7 @@
 		float: left;
 	}
 
-	img {
+	.div2 img {
 		width: 20ch;
 		height: 25ch;
 	}
@@ -131,23 +131,22 @@
 	.div3 {
 		margin-left: 20px;
 	}
-
+	
 	.el-tabs__item {
-		font-size: 18px !important;
+		font-size: 18px ;
 		color: gray;
 	}
-
-	.is-active {
-		color: white !important;
-		background-color: #35a121 !important;
+	
+	.tab-active {
+		color: white ;
+		background-color: #35a121;
 	}
-
+	
 	.ziti {
 		margin-top: 20px;
 		text-align: left;
 		font-size: 30px;
 		width:200px;
-		/* position:absolute; */
 	}
 	.first{
 		height:600px;

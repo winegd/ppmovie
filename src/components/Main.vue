@@ -72,7 +72,7 @@
 		
 	    <el-main>
 			<router-view></router-view>
-			<h2 style="text-align: left;" >正在热映</h2>
+			
 		
 		</el-main>
 	  </el-container>

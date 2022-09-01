@@ -1,13 +1,18 @@
 <template>
-  <el-carousel height="520px" :interval="4000" trigger="click" >
+	<div>
+	  <el-carousel height="520px" :interval="4000" trigger="click" >
     <el-carousel-item v-for="(item,index) in list" :key="index" >
 	  <img @click="Todetail(item.name)" :src="item.src" />
     </el-carousel-item>
   </el-carousel>
+  <h2 style="text-align: left;" >正在热映</h2>	
+		
+	</div>
+
 </template>
 
 <style>
-\
+
 	
   .el-carousel__item h3 {
     color: #ff0000;

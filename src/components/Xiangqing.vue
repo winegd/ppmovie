@@ -45,6 +45,7 @@
 	</div>
 </template>
 <script>
+	import axios from 'axios'
 	export default{
 		name:"xiangqing",
 		data(){
@@ -68,12 +69,12 @@
 		mounted(){
 			axios('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',{
 				headers:{
-					'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"1606697250632532718583809","bc":"440100"}',
-					'X-Host': 'mall.film-ticket.film.list'
+					'Referer': 'http://fszy1.com/vod/detail/id/145/',
+					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.70'
 				}
 			}).then(res=>{
-					this.data = res.data.data
-					console.log(this.data)
+					//this.data = res.data.data
+					console.log(res.data)
 			})
 		}
 		 

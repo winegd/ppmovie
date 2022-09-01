@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-	<Xiangqing></Xiangqing>
+
+	<router-view></router-view>
   </div>
 </template>
 
 <script>
 import Xiangqing from './components/Xiangqing.vue'
+
+   
+// import Main from './components/Main.vue'
+
+import cartoontv from './components/cartoontv.vue'
+import movielist from './components/movielist.vue'
+import seriallist from './components/seriallist.vue'
+// import lunbo from './components/Lunbo.vue'
+
+
 export default {
   name: 'app',
   components: {
-    
+	// Main,
+	cartoontv,
+	movielist,
+	seriallist,
 	Xiangqing
+
   }
 }
 </script>

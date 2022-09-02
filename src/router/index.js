@@ -76,8 +76,8 @@ const routes = [
 		}
 	},
 	{
-		path: '*',
-		redirect: '/Player'
+		path: '/',
+		redirect: '/play'
 	}
 ]
 

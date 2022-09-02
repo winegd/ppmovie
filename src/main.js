@@ -22,7 +22,7 @@ import App from './App.vue'
 // axios.defaults.baseURL = '/api'// 使每次请求都会带一个 /api 前缀 
 // =======
 import router from '@/router'
-
+import 'video.js/dist/video-js.css'
 
 Vue.config.productionTip = false
 

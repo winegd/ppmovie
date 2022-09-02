@@ -1,31 +1,16 @@
 <template>
   <div id="app">
-
-	<router-view></router-view>
+		<Main v-show="$route.meta.show"></Main>
+		<!-- <router-view></router-view> -->
   </div>
 </template>
 
 <script>
-import Xiangqing from './components/Xiangqing.vue'
-
-   
-import Main from './components/Main.vue'
-
-import cartoontv from './components/cartoontv.vue'
-import movielist from './components/movielist.vue'
-import seriallist from './components/seriallist.vue'
-import lunbo from './components/Lunbo.vue'
-
-
+import Main from '../src/components/Main'
 export default {
   name: 'app',
-  components: {
-	Main,
-	cartoontv,
-	movielist,
-	seriallist,
-	Xiangqing
-
+  components:{
+	  Main
   }
 }
 </script>

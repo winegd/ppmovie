@@ -1,9 +1,7 @@
 <template>
 	<div id="poster">
+		<div>		
 		<el-form 
-		:model="ruleForm" 
-		:rules="rules"
-		ref="ruleForm" 
 		label-width="0px" 
 		label-position="left"
 		class="register-container">
@@ -14,7 +12,7 @@
 		    <el-input 
 			type="text"
 			autocomplete="off"
-			v-model="ruleForm.loginName"
+			v-model="account"
 			placeholder="请输入用户账号"
 			prefix-icon="el-icon-user-solid"
 			></el-input>
@@ -23,7 +21,7 @@
 		    <el-input 
 			type="text"
 			autocomplete="off"
-			v-model="ruleForm.name"
+			v-model="usename"
 			placeholder="请输入昵称"
 			prefix-icon="el-icon-user-solid"
 			></el-input>
@@ -31,7 +29,7 @@
 		  <el-form-item label="" prop="password">
 		    <el-input 
 			type="password" 
-			v-model="ruleForm.password" 
+			v-model="password" 
 			autocomplete="off"
 			placeholder="请输入密码"
 			prefix-icon="el-icon-lock"
@@ -40,110 +38,91 @@
 		  <el-form-item label="" prop="checkPass">
 		    <el-input 
 			type="password" 
-			v-model="ruleForm.checkPass" 
+			v-model="checkPass" 
 			autocomplete="off"
 			placeholder="请确认密码"
 			prefix-icon="el-icon-lock"></el-input>
 		  </el-form-item>
 		  <el-form-item>
+			  <el-button style="width: 100%;border:none;" @click="resetForm()">重置</el-button>
+		  </el-form-item>
+		  <el-form-item>
 		    <el-button type="primary"
-			 style="background: #505458;border:none;"
-			 @click="submitForm(ruleForm)">注册</el-button>
+			 style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
+			 @click="register()">注册</el-button>
+			 </el-form-item>
+	
+
+
+			 <el-form-item>
 			 <el-button
 			 			type="primary"
-			 			style="background: #505458;border:none;"
-			 			@click="toLogin()">登录</el-button>
+			 			style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
+			@click="toLogin()">登录</el-button>
 			 </el-form-item>
-		    <el-button @click="resetForm('ruleForm')">重置</el-button>
 		</el-form>
+		
+		</div>
+		
+			
+		
+
 	</div>
 </template>
 
 <script>
 	  export default {
 	    data() {
-	      var validatePass = (rule, value, callback) => {
-	        if (value === '') {
-	          callback(new Error('请输入密码'));
-	        } else {
-	          if (this.ruleForm.checkPass !== '') {
-	            this.$refs.ruleForm.validateField('checkPass');
-	          }
-	          callback();
-	        }
-	      };
-	      var validatePass2 = (rule, value, callback) => {
-	        if (value === '') {
-	          callback(new Error('请再次输入密码'));
-	        } else if (value !== this.ruleForm.password) {
-	          callback(new Error('两次输入密码不一致!'));
-	        } else {
-	          callback();
-	        }
-	      };
+	      
 	      return {
-	        ruleForm: {
-	          loginName:'',
-			  name:'',
+	          account:'',
+			  usename:'',
 			  password: '',
-	          checkPass: ''
-	        },
-	        rules: {
-				loginName: [
-				  { required: true,message:"请输入你的用户账号", trigger: 'blur' },
-				  { min:2,max:9,message:"长度2到9个字符", trigger: 'blur' }
-				],
-	          password: [
-	            { validator: validatePass, trigger: 'blur' }
-	          ],
-	          checkPass: [
-	            { validator: validatePass2, trigger: 'blur' }
-	          ]
-	        }
+	          checkPass: '',
+
 	      };
 	    },
 	    methods: {
-	      submitForm(formName) {
-			  this.ruleForm= {};
-			  if(formName.loginName==''){
+	      register(){
+			  if(this.account==''||this.usename==''||this.password==""||this.checkPass==''){
 				 this.$message({
-				           message: '请输入用户账户',
+				           message: '注册信息不能为空',
 				           type: 'error'
 				         }); 
+			  }else{
+				  if(this.password!=this.checkPass){
+					  this.$message({
+					            message: '两次密码不一致',
+					            type: 'error',
+					          }); 
+				  }
+				  else{
+					  this.$message({
+				  		   message: '恭喜你，注册成功',
+				  		   type: 'success',
+						   duration:'1000'
+				  		 }); 
+						 this.toLogin()
+				  }
+				  console.log()
+				   
 			  }
-			  else if(formName.name==''){
-				  this.$message({
-				            message: '请输入用户名',
-				            type: 'error'
-				          }); 
-			  }
-			  else if(formName.password==''){
-			  				  this.$message({
-			  				            message: '请输入密码',
-			  				            type: 'error'
-			  				          }); 
-			  }
-			  else if(formName.checkPass==''){
-				  this.$message({
-				            message: '请确认密码',
-				            type: 'error'
-				          }); 
-			  }
-/* 			  else(){
-				  this.$message({
-				            message: '恭喜你，注册成功',
-				            type: 'success'
-				          });
-			  } */
-			  
-
 	      },
-	      resetForm(formName) {
-	        this.$refs[formName].resetFields();
-	      },
+		  resetForm(){
+			  this.account='' 
+			  this.usename=''
+			  this.password=""
+			  this.checkPass=''
+			  this.$message({
+					   message: '重置成功',
+					   type: 'success',
+					   duration:'1000'
+					 }); 
+		  },
 		  toLogin(){
-			  this.$router.push({path:'/'})
-		  }
+			  this.$router.push({path:'/login'})
+		  },
+
 	    }
 	  }
 </script>

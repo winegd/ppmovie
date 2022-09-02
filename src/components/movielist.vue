@@ -5,7 +5,7 @@
 			<el-tab-pane label="电影首页" name="first">
 				<div class='first'>
 						<div class="ziti">今日推荐</div>
-					<div v-for="item in movieList" style='margin-top:40px' :key='item.filmId'>
+					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId'>
 						<div class="div1">
 							<a href="../" style="text-decoration:none;">
 								<div class="div2">
@@ -22,8 +22,7 @@
 						<div class="ziti">
 						热门电影
 						</div>
-												<div>sss</div>
-					<div v-for="item in movieList" style='margin-top:40px' :key='item.filmId'>
+					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId'>
 						<div class="div1">
 							<a href="../" style="text-decoration:none;">
 								<div class="div2">
@@ -87,7 +86,7 @@
 	}
 
 	.div1 {
-		margin-top: 20px;
+		margin-top: 10px;
 		width: 20ch;
 		height: 30ch;
 		margin-left: 30px;
@@ -98,7 +97,12 @@
 	.div2 img {
 		width: 20ch;
 		height: 25ch;
+		border-radius: 15px;
 	}
+	.div2 img:hover{
+				box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+				margin-bottom: 10px;
+		}
 
 	.div3 {
 		margin-left: 20px;

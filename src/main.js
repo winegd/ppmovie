@@ -15,6 +15,10 @@ import cartoontv from './components/cartoontv.vue'
 import movielist from './components/movielist.vue'
 import seriallist from './components/seriallist.vue'
 import relax from './components/relax.vue'
+import axios from 'axios'
+Vue.prototype.$axios = axios
+
+axios.defaults.baseURL = '/api'// 使每次请求都会带一个 /api 前缀 
 
 Vue.config.productionTip = false
 Vue.use(Router)

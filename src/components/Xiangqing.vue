@@ -74,7 +74,7 @@
 				}
 		},
 		mounted(){
-			// axios('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',{
+			// this.$axios.get('/.php/provide/vod/?ac=detail&ids=145',{
 			// 	headers:{
 			// 			'Accept': 'application/json, text/javascript, */*; q=0.01',
 			// 			'Accept-Encoding': 'gzip, deflate',
@@ -103,8 +103,23 @@
 			// $.ajax({
 			// 	url: 'https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',
 			// 	type: 'get',
+			// 	//dataType:'jsonp',
+			// 	headers:{
+			// 			'Accept': 'application/json,application/javascript, text/javascript, */*; q=0.01',
+			// 			'Accept-Encoding': 'gzip, deflate',
+			// 			'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
+			// 			'Connection': 'keep-alive',
+			// 			'Cookie': '__51uvsct__JdYOsqRHv5dridaI=1; __51vcke__JdYOsqRHv5dridaI=82df3718-b7e4-58ba-8b80-cf067142837c; __51vuft__JdYOsqRHv5dridaI=1662043819368; __vtins__JdYOsqRHv5dridaI=%7B%22sid%22%3A%20%2289917598-1b56-50cd-8a78-ed1d8702353c%22%2C%20%22vd%22%3A%202%2C%20%22stt%22%3A%2018661%2C%20%22dr%22%3A%2018661%2C%20%22expires%22%3A%201662045638022%2C%20%22ct%22%3A%201662043838022%7D',
+			// 			'Host': 'fszy1.com',
+			// 			'Referer': 'http://fszy1.com/vod/detail/id/191/',
+			// 			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.70',
+			// 			'X-Requested-With': 'XMLHttpRequest',
+			// 	},
 			// 	success(res) {
 			// 		console.log(res);
+			// 	},
+			// 	false(res){
+			// 		console.log('失败');
 			// 	}
 			// });
 

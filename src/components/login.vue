@@ -17,10 +17,10 @@
 		    <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="请输入密码"></el-input>
 		  </el-form-item>
 		  <el-form-item>
-			  <el-button style="width:100%;" @click="toRegister()">立即注册</el-button>
+			  <el-button type="primary" round style="width:100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;" @click="toRegister()">立即注册</el-button>
 		  </el-form-item>
 		  <el-form-item>
-		   <el-button  type="primary" style="width: 100%;background-image:linear-gradient(to right,#59C2FD, #2B99FF);border:none;" @click="login()">登录</el-button>
+		   <el-button  type="primary" round style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;" @click="login()">登录</el-button>
 		  </el-form-item>
 		</el-form>
 	</body>
@@ -39,25 +39,22 @@
 		    },
 		    methods: {
 				submitForm(loginForm){
-					if(loginForm.loginName==''){
+/*			if(loginForm.loginName==''){
 							this.$message({
 								message: '请输入用户账号',
 								type: 'error'
 								}); 
-				}
-/* 				this.$message({
-				          message: '恭喜你，登录成功',
-				          type: 'success'
-				        }); */
-					
+				} */
+				if(loginForm.loginName=='123'&&loginForm.password=="123"){
+					this.$message({
+							  message: '恭喜你，登录成功',
+							  type: 'success'
+							});
+				     }
 				},
 		      login() {
 		        console.log('submit!',this.loginForm);
-								this.$message({
-								          message: '恭喜你，登录成功',
-								          type: 'success'
-								        });
-					this.$router.push({path:'/Main'})
+				this.$router.push({path:'/Main'})
 		      },
 			  toRegister(){
 				  this.$router.push({path:'/register'})

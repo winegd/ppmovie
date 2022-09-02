@@ -46,15 +46,19 @@
 			prefix-icon="el-icon-lock"></el-input>
 		  </el-form-item>
 		  <el-form-item>
+			  <el-button style="width: 100%;border:none;" @click="resetForm('ruleForm')">重置</el-button>
+		  </el-form-item>
+		  <el-form-item>
 		    <el-button type="primary"
-			 style="background: #505458;border:none;"
+			 style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
 			 @click="submitForm(ruleForm)">注册</el-button>
+			 </el-form-item>
+			 <el-form-item>
 			 <el-button
 			 			type="primary"
-			 			style="background: #505458;border:none;"
-			 			@click="toLogin()">登录</el-button>
+			 			style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
+			@click="toLogin()">登录</el-button>
 			 </el-form-item>
-		    <el-button @click="resetForm('ruleForm')">重置</el-button>
 		</el-form>
 	</div>
 </template>
@@ -105,13 +109,44 @@
 	    methods: {
 	      submitForm(formName) {
 			  this.ruleForm= {};
-			  if(formName.loginName==''){
+			  if(formName.loginName==''||formName.password==''||formName.checkPass==''){
 				 this.$message({
-				           message: '请输入用户账户',
+				           message: '注册失败！请点击重置后再试',
 				           type: 'error'
 				         }); 
+			  }else{
+				  console.log(formName)
+				   this.$message({
+				  		   message: '恭喜你，注册成功，去登录吧',
+				  		   type: 'success'
+				  		 }); 
 			  }
-			  else if(formName.name==''){
+/* 			  if(formName.name==''){
+				 this.$message({
+						   message: '请输入昵称',
+						   type: 'error'
+						 }); 
+			  } */
+/* 			  if(formName.password==''){
+				 this.$message({
+						   message: '请输入密码',
+						   type: 'error'
+						 }); 
+			  }
+			  if(formName.checkPass==''){
+			  				 this.$message({
+			  						   message: '请再次输入密码',
+			  						   type: 'error'
+			  						 }); 
+			  } */
+			  // if(formName.loginName!=''&&formName.password!=''&&formName.checkPass!=''){
+					// 		console.log(formName)
+			  // 				 this.$message({
+			  // 						   message: '恭喜你，注册成功，去登录吧',
+			  // 						   type: 'success'
+			  // 						 }); 
+			  // }
+/* 			  else if(formName.name==''){
 				  this.$message({
 				            message: '请输入用户名',
 				            type: 'error'
@@ -128,7 +163,7 @@
 				            message: '请确认密码',
 				            type: 'error'
 				          }); 
-			  }
+			  } */
 /* 			  else(){
 				  this.$message({
 				            message: '恭喜你，注册成功',
@@ -142,7 +177,7 @@
 	        this.$refs[formName].resetFields();
 	      },
 		  toLogin(){
-			  this.$router.push({path:'/'})
+			  this.$router.push({path:'/login'})
 		  }
 	    }
 	  }

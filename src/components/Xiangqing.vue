@@ -22,7 +22,7 @@
 				<p>{{update}}</p>
 				<div class="img">
 					<el-row>
-				<el-button id="button1" @click="show" style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
+				<el-button id="button1"  style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
 					<i class="el-icon-caret-right" style="color: white;" >播放</i>
 				</el-button>
 				</el-row>
@@ -50,14 +50,13 @@
 		name:"xiangqing",
 		data(){
 			return{
-				moviename:"长津湖",
-				detail:"电影以抗美援朝战争第二次战电影以抗美援朝战争第二次战役中的长津湖战役为背景，讲述了在结束了新兴里和下碣隅里的战斗之后，七连战士们电影以抗美援朝战争第二次战役中的长津湖战役为背景，讲述了在结束了新兴里和下碣隅里的战斗之后，七连战士们役中的长津湖战役为背景，讲述了在结束了新兴里和下碣隅里的战斗之后，七连战士们又接到了更艰巨的任务……",
+				moviename:"",
+				detail:"",
 				year:"",
 				country:"",
 				director:"",
 				actor:"",
 				update:"",
-				// language:"",
 				type:"",
 				datalist:[],
 				data:{}
@@ -66,17 +65,17 @@
 		methods:{
 				
 		},
-		mounted(){
-			axios('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',{
-				headers:{
-					'Referer': 'http://fszy1.com/vod/detail/id/145/',
-					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.70'
-				}
-			}).then(res=>{
-					//this.data = res.data.data
-					console.log(res.data)
-			})
-		}
+		// mounted(){
+		// 	axios('https://www.feisuzyapi.com/api.php/provide/vod/?ac=detail&ids=145',{
+		// 		headers:{
+		// 			'Referer': 'http://fszy1.com/vod/detail/id/145/',
+		// 			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.70'
+		// 		}
+		// 	}).then(res=>{
+		// 			//this.data = res.data.data
+		// 			console.log(res.data)
+		// 	})
+		// }
 		 
 	}
 </script>

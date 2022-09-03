@@ -64,10 +64,6 @@
 				    <i class="el-icon-phone"></i>
 				    <span slot="title">纪录片</span>
 				  </el-menu-item>
-				  <el-menu-item index="7">
-<!-- 				    <i ></i>
-				    <span slot="title">详情</span> -->
-				  </el-menu-item>
 			    </el-menu>
 				
 

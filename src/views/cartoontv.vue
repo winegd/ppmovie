@@ -7,14 +7,14 @@
 					<div class="ziti">今日推荐</div>
 					<div v-for="item in cartoontvList" style='margin-top:40px' :key="item.filmId">
 						<div class="div1">
-							<a href="../" style="text-decoration:none;">
+							<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
 								<div class="div2">
 									<img :src="item.poster" />
 								</div>
 								<div class='div3'>
 									<p>{{item.name}}</p>
 								</div>
-							</a>
+							</router-link>
 						</div>
 					</div>
 				</div>
@@ -24,14 +24,14 @@
 					</div>
 					<div v-for="item in cartoontvList" style='margin-top:40px'>
 						<div class="div1">
-							<a href="../" style="text-decoration:none;">
+							<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
 								<div class="div2">
 									<img :src="item.poster" />
 								</div>
 								<div class='div3'>
 									<p>{{item.name}}</p>
 								</div>
-							</a>
+							</router-link>
 						</div>
 					</div>
 				</div>
@@ -39,14 +39,14 @@
 			<el-tab-pane label="电影库" name="second">
 				<div v-for="item in cartoontvList">
 					<div class="div1">
-						<a href="../" style="text-decoration:none;">
+						<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
 							<div class="div2">
 								<img :src="item.poster" />
 							</div>
 							<div class='div3'>
 								<p>{{item.name}}</p>
 							</div>
-						</a>
+						</router-link>
 					</div>
 				</div>
 			</el-tab-pane>

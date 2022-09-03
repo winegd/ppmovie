@@ -4,49 +4,55 @@
 		<el-tabs v-model="activeName" class="tab-active">
 			<el-tab-pane label="电影首页" name="first">
 				<div class='first'>
-						<div class="ziti">今日推荐</div>
-					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId' @click='handleChangePage(item.filmId)'>
+					<div class="ziti">今日推荐</div>
+					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId'
+						>
 						<div class="div1">
-							<a href="../" style="text-decoration:none;">
+							<!-- <a href="../" style="text-decoration:none;"> -->
+							<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
 								<div class="div2">
 									<img :src="item.poster" />
 								</div>
 								<div class='div3'>
 									<el-link :underline="false">{{item.name}}</el-link>
 								</div>
-							</a>
+								</router-link>
+							<!-- </a> -->
 						</div>
 					</div>
 				</div>
 				<div class='second'>
-						<div class="ziti">
+					<div class="ziti">
 						热门电影
-						</div>
-					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId'  @click='handleChangePage(item.filmId)'>
+					</div>
+					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId'
+						>
 						<div class="div1">
-							<a href="../" style="text-decoration:none;">
+							<!-- <a href="../" style="text-decoration:none;"> -->
+							<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
 								<div class="div2">
 									<img :src="item.poster" />
 								</div>
 								<div class='div3'>
 									<el-link :underline="false">{{item.name}}</el-link>
 								</div>
-							</a>
+							</router-link>
 						</div>
-						</div>
+					</div>
 				</div>
 			</el-tab-pane>
 			<el-tab-pane label="电影库" name="second">
-				<div v-for="item in movieList" :key='item.filmId'  @click='handleChangePage(item.filmId)'>
+				<div v-for="item in movieList" :key='item.filmId' @click='handleChangePage(item.filmId)'>
 					<div class="div1">
-						<a href="../" style="text-decoration:none;">
+						<!-- <a href="../" style="text-decoration:none;"> -->
+						<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
 							<div class="div2">
 								<img :src="item.poster" />
 							</div>
 							<div class='div3'>
 								<el-link :underline="false">{{item.name}}</el-link>
 							</div>
-						</a>
+						</router-link>
 					</div>
 				</div>
 			</el-tab-pane>
@@ -60,36 +66,26 @@
 		name: 'movielist',
 		data() {
 			return {
-				activeName:'first',
-				movieList:[]
+				activeName: 'first',
+				movieList: []
 			}
 		},
-		mounted(){
-			axios('https://m.maizuo.com/gateway?cityId=110100&pageNum=3&pageSize=20&type=1&k=1651774',{
-				headers:{
+		mounted() {
+			axios('https://m.maizuo.com/gateway?cityId=110100&pageNum=3&pageSize=20&type=1&k=1651774', {
+				headers: {
 					'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"1606697250632532718583809","bc":"440100"}',
 					'X-Host': 'mall.film-ticket.film.list'
 				}
-			}).then(res=>{
-					this.movieList = res.data.data.films
+			}).then(res => {
+				this.movieList = res.data.data.films
 			})
 		},
-		methods:{
-			handleChangePage(id){
-				 this.$router.push({
-				         name: 'detail',
-				         params: {
-				           id
-				         }
-				       })
-			}
+		methods: {
+			// handleChangePage(id) {
+			// 	this.$router.push(`/detail/${id}`)
+			// }
 		},
-		}
-				     
-		
-	
-		
-	
+	}
 </script>
 
 <style>
@@ -112,35 +108,38 @@
 		height: 25ch;
 		border-radius: 15px;
 	}
-	.div2 img:hover{
-				box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
-				margin-bottom: 10px;
-		}
+
+	.div2 img:hover {
+		box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+		margin-bottom: 10px;
+	}
 
 	.div3 {
 		margin-left: 20px;
 	}
-	
+
 	.el-tabs__item {
-		font-size: 18px ;
+		font-size: 18px;
 		color: gray;
 	}
-	
+
 	.tab-active {
 		/* color: white ; */
 		/* background-color: #35a121; */
 	}
-	
+
 	.ziti {
 		margin-top: 20px;
 		text-align: left;
 		font-size: 30px;
-		width:200px;
+		width: 200px;
 	}
-	.first{
-		height:600px;
+
+	.first {
+		height: 600px;
 	}
-	.second{
-		margin-top:40px
+
+	.second {
+		margin-top: 40px
 	}
 </style>

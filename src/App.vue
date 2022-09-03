@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-		<Main v-show="$route.meta.show"></Main>
-		<!-- <router-view></router-view> -->
+		<!-- <Main v-show="$route.meta.show"></Main> -->
+		<router-view></router-view>
   </div>
 </template>
 

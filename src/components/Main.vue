@@ -60,7 +60,7 @@
 		
 		<el-container>
 	    <el-main>
-				<router-view></router-view>
+				<router-view ></router-view>
 					
 		</el-main>
 		<!-- <el-footer id="header" height="60px"></el-footer> -->
@@ -105,7 +105,17 @@
 					 this.$router.push({path:'/cartoon'})
 				}
 			}
-		}
+		},
+
+		// watch: {
+		// 	$route(to,from){
+		// 		if(to.name == 'play'){
+		// 			this.reload()
+		// 		}
+		// 	}
+		
+		// },
+
 		
 	}
 </script>

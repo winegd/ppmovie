@@ -5,27 +5,26 @@
 			<video
 			    id="my-video" 
 			    controls
-				class="video-js vjs-default-skin vjs-big-play-centered"
+				class="video-js vjs-big-play-centered"
 				width="790px"
 				height="460px"
+				poster="../assets/poster2.png"
+				
 					>
 			    <source :src="url" type="application/x-mpegURL" />
 			</video> 
-			<!-- <el-button type="primary" @click="getVideo()">播放</el-button> -->
-			  <el-button  round @click="getVideo()">播放</el-button>
-			<!-- class="video-js vjs-default-skin vjs-big-play-centered" -->
-			<!-- class="vjs-default-skin" -->
+
 		</div>
-	
-		
+
+
 		<div id="side_container" >
 			<h2 >{{moviename}}</h2>
 			<h4 style="margin: 8px;" >选集播放</h4>
 			<div id="select" >
 				<div  v-for="(item,index) in datalist">
-					<a :href="item" target="_blank" >
+					<router-link to="/play" >
 						<el-button  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
-					</a>
+				</router-link>
 				</div>
 			</div> 
 			
@@ -33,7 +32,10 @@
 		</div>
 	
 	</div>
-	
+	<!-- <el-button type="primary" @click="getVideo()">播放</el-button> -->
+	  <!-- <el-button  round @click="start()">播放</el-button> -->
+	<!-- class="video-js vjs-default-skin vjs-big-play-centered" -->
+	<!-- class="vjs-default-skin" -->
 	
 </template>
 <style>
@@ -47,7 +49,8 @@
 	}
 	#player{
 		width: 792px;
-		height: auto;
+		
+		height: 460px;
 		
 	}
 	#player_container{
@@ -56,13 +59,14 @@
 	}
 </style>
 <script>
-	
+	require('video.js/dist/video-js.css')
 	import videojs from "video.js";
 	import "videojs-contrib-hls";
-	
 	export default{
-		mounted() {
-			this.getVideo()
+		mounted() {		
+			if(this.play==null){
+				this.getVideo()
+			}
 		},
 		name:'Player',
 		data(){
@@ -73,7 +77,7 @@
 				//url:'https://v7.dious.cc/20220816/IShATbpk/index.m3u8',
 				//url:' https://playtv-live.ifeng.com/live/06OLEGEGM4G.m3u8',
 				url:'https://s5.fsvod1.com/20220428/kfhEcrR1/index.m3u8',
-				player:'',
+				player:null,
 				datalist:[1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,],
 				moviename:"长津湖"
 			}
@@ -83,6 +87,7 @@
 		},
 		methods:{
 			getVideo() {
+				var that = this
 			   this.player=videojs(
 				   "my-video",
 				   {
@@ -94,26 +99,26 @@
 					   textTrackDisplay: false,
 					   posterImage: true,
 					   errorDisplay: false,
-					   controlBar: true,
-					   playbackRates: [0.5, 1.0, 1.5, 2.0], 
 					   language: 'zh-CN',
 					   notSupportedMessage: '此视频暂无法播放，请稍后再试',
-					   autoplay: true
-				   }
+					   controlBar:true,
+				   },
+				   
 			   );
-			   this.player.play()
 	
 				},
-				beforeDestroy() {
-				      if (this.player != null) {
-				        this.player.dispose() // dispose()会直接删除Dom元素
-				      }
-				    }
+
+				start(){
+					this.player.play()
+				},
+
 		},
-		
-		mounted(){
-		        
+		beforeDestroy() {
+		      if (this.player != null) {
+		        this.player.dispose() // dispose()会直接删除Dom元素
 		      }
+		    }
+
 	
 	}
 </script>

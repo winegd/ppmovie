@@ -16,78 +16,10 @@ import register from '@/views/register.vue'
 import relax from '@/views/relax.vue'
 import Player from '@/views/Player.vue'
 import Main from '../components/Main.vue'
+
 // 定义routes路由的集合，数组类型
 //show是我一进去页面就展示的界面，adminIndex是我要跳转的路径页面
-/* const routes = [
-	
-	{
-		path: '/play',
-		component: Player,
-		meta: {
-			show: true
-		}
-	},
-	{
-		path: '/movie',
-		component: movielist,
-		meta: {
-			show: true
-		},
-		children:[
-			{
-				path: '/movie/:id',
-				component: Detail
-			}
-		]
-	},
-	{
-		path: '/serial',
-		component: seriallist,
-		meta: {
-			show: true
-		}
-	},
-	{
-		path: '/cartoon',
-		component: cartoontv,
-		meta: {
-			show: true
-		}
-	},
-	{
-		path: '/relax',
-		component: relax,
-		meta: {
-			show: true
-		}
-	},
-	{
-		path: '/login',
-		component: login,
-		meta: {
-			show: false
-		}
-	},
-	{
-		path: '/register',
-		component: register,
-		meta: {
-			show: false
-		}
-	},
-	{	
-		path: '/lunbo',
-		component: Lunbo,
-		meta: {
-			show: true
-		}
-		
-	},
-	{
-		path: '/',
-		redirect: ''
-	}
-] */
+
 
 
  const routes = [
@@ -129,8 +61,7 @@ import Main from '../components/Main.vue'
 			{
 				name:'lunbo',
 				path: '/lunbo',
-				component: Lunbo,
-			
+				component: Lunbo,			
 				
 			},
 			

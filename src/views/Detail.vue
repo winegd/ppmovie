@@ -1,5 +1,5 @@
 <template>
-	<div
+	<div v-if="filmInfo != null"
 		style="width: 100%; background-color:#F5F5F5;height: 100%;display: flex;flex-direction: column;align-items:flex-start">
 		<div class="box1">
 			<img style="height: 400px;width:300px ; padding-top: 50px;border-radius: 15px;" :src="filmInfo.poster">
@@ -31,13 +31,14 @@
 				<p style="font-weight: bolder ;">更新时间: {{filmInfo.premiereAt|dateFilter}} </p>
 				<div class="img">
 					<el-row>
-
+					<router-link  to="/play" >
 					<el-button id="button1" @click="show()" style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
 
-					<router-link  to="/play" >
+					
 						<i class="el-icon-caret-right" style="color: white;">播放</i>
-					</router-link>
+					
 				</el-button>
+				</router-link>
 				</el-row>
 				</div>
 				

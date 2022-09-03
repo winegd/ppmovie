@@ -64,6 +64,10 @@
 				    <i class="el-icon-phone"></i>
 				    <span slot="title">纪录片</span>
 				  </el-menu-item>
+				  <el-menu-item index="7">
+<!-- 				    <i ></i>
+				    <span slot="title">详情</span> -->
+				  </el-menu-item>
 			    </el-menu>
 				
 
@@ -101,7 +105,7 @@
 			},
 			menuSelect(key,keyPath){
 				if(key==1){
-					 this.$router.push({path:'/'})
+					 this.$router.push({path:'/lunbo'})
 				}
 				else if(key==2){
 					 this.$router.push({path:'/movie'})

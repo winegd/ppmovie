@@ -75,9 +75,17 @@ const routes = [
 			show: true
 		}
 	},
+	{	name:'lunbo	',
+		path: '/lunbo',
+		component: Lunbo,
+		meta: {
+			show: true
+		}
+		
+	},
 	{
 		path: '/',
-		redirect: '/play'
+		redirect: '/lunbo'
 	}
 ]
 

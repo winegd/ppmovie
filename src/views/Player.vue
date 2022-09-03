@@ -68,10 +68,11 @@
 		data(){
 		return {
 				speed:1,
-				url:'https://v6.dious.cc/20220428/AvHwnFK7/index.m3u8',
-				
+				//url:'https://v6.dious.cc/20220428/AvHwnFK7/index.m3u8',
+				//url:'https://m3.taopianplay1.com:43333/taopian/54fdb532-e89b-4567-bc07-aa93a0c6a79b/a891bf2e-a823-4ae0-ac07-107cdf1703d8/75490/2c7dc32b-6cc4-4bca-8ce7-80eb077ef6e3/SD/playlist.m3u8',
+				//url:'https://v7.dious.cc/20220816/IShATbpk/index.m3u8',
 				//url:' https://playtv-live.ifeng.com/live/06OLEGEGM4G.m3u8',
-				//url:'https://s5.fsvod1.com/20220428/kfhEcrR1/index.m3u8',
+				url:'https://s5.fsvod1.com/20220428/kfhEcrR1/index.m3u8',
 				player:'',
 				datalist:[1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,],
 				moviename:"长津湖"

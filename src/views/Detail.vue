@@ -128,7 +128,7 @@
 	}
 </script>
 
-<style>
+<style >
 	.box1{
 		background-color:#F5F5F5;
 		height: 500px;
@@ -140,8 +140,8 @@
 	   #button1 {  display: flex;  align-items: center;  justify-content: center;  height: 10 vh;  background: #1c2541;}
 		button {  border: white;  background: transparent;  text-transform: uppercase;  color: white;  padding: 15px 50px;  outline: none;  overflow: hidden;  position: relative;}
 		span {  z-index: 20;  }
-		button:after {  content: '';    display: block;    position: absolute;    top:  -36px;    left: -100px;    background: white;    width: 50px;    height: 125px;    opacity: 20%;    transform: rotate(-45deg);}
 		button:hover:after {  left: 120%;  transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);   -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);}
+		button:after {  content: '';    display: block;    position: absolute;    top:  -36px;    left: -100px;    background: white;    width: 50px;    height: 125px;    opacity: 20%;    transform: rotate(-45deg);}
 	   #container{
 		display: flex;
 		width: 100%;

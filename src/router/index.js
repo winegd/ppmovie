@@ -85,7 +85,7 @@ const routes = [
 	},
 	{
 		path: '/',
-		redirect: '/lunbo'
+		redirect: '/play'
 	}
 ]
 

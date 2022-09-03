@@ -30,7 +30,13 @@ const routes = [
 		component: movielist,
 		meta: {
 			show: true
-		}
+		},
+		children:[
+			{
+				path: '/movie/:id',
+				component: Detail
+			}
+		]
 	},
 	{
 		path: '/serial',
@@ -67,15 +73,7 @@ const routes = [
 			show: false
 		}
 	},
-	{
-		name:'detail',
-		path: '/detail',
-		component: Detail,
-		meta: {
-			show: true
-		}
-	},
-	{	name:'lunbo	',
+	{	
 		path: '/lunbo',
 		component: Lunbo,
 		meta: {

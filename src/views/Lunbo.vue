@@ -5,20 +5,36 @@
 	  <img @click="Todetail(item.name)" :src="item.src" />
     </el-carousel-item>
   </el-carousel>
-  <h2 style="text-align: left;" >正在热映</h2>	
-		<el-row :gutter="20">
-		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-		  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-		</el-row>
+ <!-- <h2 style="text-align: left;" >正在热映</h2>	 -->
+<!-- 		<el-row :gutter="20">
+		  <el-col :span="4.8"><div class="grid-content bg-purple"></div>
+			<img class="div2" src="../assets/0.jpeg" />
+		  </el-col>
+		  <el-col :span="4.8"><div class="grid-content bg-purple"></div>
+		  <img class="div2" src="../assets/0.jpeg" />
+		  </el-col>
+		  <el-col :span="4.8"><div class="grid-content bg-purple"></div>
+		  <img class="div2" src="../assets/0.jpeg" />
+		  </el-col>
+		  <el-col :span="4.8"><div class="grid-content bg-purple"></div>
+		  <img class="div2" src="../assets/0.jpeg" />
+		  </el-col>
+		  <el-col :span="4.8"><div class="grid-content bg-purple"></div>
+		  <img class="div2" src="../assets/0.jpeg" />
+		  </el-col>
+		</el-row> -->
+		<mv></mv>
+	
 	</div>
 
 </template>
 
 <style>
-
-	
+		
+	.mv_img{
+		width: 135px;
+		height: 80px;
+	}
   .el-carousel__item h3 {
     color: #ff0000;
     font-size: 25px;
@@ -37,9 +53,12 @@
 </style>
 
 <script>
-	
+	import lunbo_movie from '@/views/lunbo_movie.vue'
 	export default{
 		name:'Lunbo',
+		components:{
+			mv:lunbo_movie
+		},
 		data(){
 			return{
 				list:[

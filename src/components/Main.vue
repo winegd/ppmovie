@@ -17,17 +17,6 @@
 			</el-row>	
 				
 			</div>
-
-			
-<!-- 			<div id="logo">
-				<img  src="../assets/icon/logo1.png" />
-			</div>
-			<el-breadcrumb separator="/">
-				
-			<el-breadcrumb-item :to="{ path: '/' }">登录</el-breadcrumb-item>
-			<el-breadcrumb-item :to="{ path: '/main' }">注册</el-breadcrumb-item>
-			
-			</el-breadcrumb> -->
 			
 
 
@@ -69,13 +58,14 @@
 
 		</el-aside>
 		
-		
+		<el-container>
 	    <el-main>
-			<router-view></router-view>
-			
-		
+				<router-view></router-view>
+					
 		</el-main>
+		<!-- <el-footer id="header" height="60px"></el-footer> -->
 	  </el-container>
+	</el-container>
 	</el-container>
 
 </template>
@@ -121,6 +111,19 @@
 </script>
 
 <style>
+	.el-aside{
+		height: 100vh;
+	}
+	.el-main {
+		/* position: absolute; */
+	    padding: 0;
+	    height: calc(100vh - 60px);
+		padding-left: 30px;
+		padding-right: 50px;
+	}
+
+
+
 	.login-button{
 		background-color: aquamarine;
 		border: 1px lightskyblue solid;

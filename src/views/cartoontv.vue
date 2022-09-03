@@ -1,7 +1,7 @@
 <!-- 动漫推荐 -->
 <template>
 	<div>
-		<el-tabs class="tab-active">
+		<el-tabs v-model="activeName" class="tab-active">
 			<el-tab-pane label="电影首页" name="first">
 				<div class='first'>
 					<div class="ziti">今日推荐</div>
@@ -43,8 +43,9 @@
 							<div class="div2">
 								<img :src="item.poster" />
 							</div>
+							
 							<div class='div3'>
-								<p>{{item.name}}</p>
+								<el-link :underline="false">{{item.name}}</el-link>
 							</div>
 						</router-link>
 					</div>
@@ -60,6 +61,7 @@
 		name: 'cartoontv',
 		data() {
 			return {
+				activeName: 'first',
 				cartoontvList: []
 			}
 		},
@@ -77,7 +79,7 @@
 	}
 </script>
 
-<style>
+<style  >
 	.div2 {
 		height: 25ch;
 		width: 20ch;
@@ -107,8 +109,8 @@
 	}
 
 	.tab-active {
-		/* color: white ; */
-		/* background-color: #35a121; */
+/* 		color: white ;
+		background-color: #35a121; */
 	}
 
 	.ziti {

@@ -101,7 +101,7 @@
 			},
 			menuSelect(key,keyPath){
 				if(key==1){
-					 this.$router.push({path:'/'})
+					 this.$router.push({path:'/lunbo'})
 				}
 				else if(key==2){
 					 this.$router.push({path:'/movie'})

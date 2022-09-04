@@ -21,13 +21,18 @@
 
 				<p style="font-weight: bolder ;">导演: {{filmInfo.director}}</p>
 				
-				<div  style=" white-space : nowrap; display: flex;flex-direction: row;">
-					<b>主演:</b><div class="line_3" style="height: 40px; display: flex;flex-direction: row;">
-						<div  style="font-weight: bolder;" v-for="item in filmInfo.actors">
+				<div   style="height: 25px; overflow:hidden;text-overflow: ellipsis;white-space: normal; white-space : nowrap; display: flex;flex-direction: row;">
+					<b>主演:</b>
+					<b>&nbsp{{filmInfo.actors}}</b>
+					<!-- <div class="line_3" style="height: 40px; display: flex;flex-direction: row;"> -->
+						<!-- <div  style="font-weight: bolder;" v-for="item in filmInfo.actors">
 							<p style="margin-right: 3px;">{{item}}</p>
-						</div>
-					</div>
+						</div> -->
+		<!-- 				<p style="margin-right: 3px;">{{filmInfo.actors}}</p>
+					</div> -->
+					
 				</div>
+				<p style="font-weight: bolder ;">更新时间: 2022-09-01</p>
 				<!-- <p style="font-weight: bolder ;">更新时间: {{filmInfo.premiereAt|dateFilter}} </p> -->
 				<div class="img">
 					<el-row>
@@ -121,8 +126,7 @@
 
 <style>
 	  .line_3 {
-
-		 height: 65px; 
+		 height: 55px; 
 		 overflow:hidden;
 		 text-overflow: ellipsis;
 		 white-space: normal;

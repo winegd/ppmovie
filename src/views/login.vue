@@ -1,6 +1,18 @@
 <template>
+	<div id="background">
+	<el-container>
+	  <el-header id="header" height="60px">
+	  	<div>
+	  	<el-row class="banner-box" type="flex" justify="space-between" :gutter="20">
+	  	  <el-col :span="2"><div><img  src="../assets/icon/logo1.png" /></div></el-col>
+		  <el-col :span="2"><div class="log1">登录</div></el-col>
+	  	</el-row>
+	  	</div>
+	  </el-header>
+	  <el-main>
 	<body id="poster">
 		<el-form class="login-container" label-position="left" label-width="0px">
+			<el-col :span="2"><div><img  src="../assets/icon/icon.png" /></div></el-col>
 			<h3 class="login_title">
 				用户登录
 			</h3>
@@ -21,6 +33,8 @@
 		
 
 	</body>
+	</el-main>
+	</el-container>
 	
 <!-- 	<div>
 	<slide-verify :l="42"
@@ -35,6 +49,7 @@
 	            ></slide-verify>
 	<div>{{msg}}</div>
 	</div> -->
+	</div>
 </template>
 
 <script>
@@ -92,11 +107,12 @@
 
 <style>
 	#poster{
-		background-position: center;
+		background: url("../assets/poster.jpg") no-repeat;
+		/* background-position: center; */
 		height: 100%;
 		width: 100%;
 		background-size: cover;
-		background-image: linear-gradient(to right,#00ffff, #aaffff);
+/* 		background-image: linear-gradient(to right,#ffffff, #e2e2e2); */
 		position: fixed;
 	}
 	body{
@@ -110,7 +126,7 @@
 		margin: 90px auto;
 		width: 350px;
 		padding: 35px 35px 15px 35px;
-		background: #61dafb;
+		background: #ffffff;
 		border: 1px solid #eaeaea;
 		box-shadow: 0 0 25px #cac6c6;
 	}
@@ -118,5 +134,10 @@
 		margin: 0px auto 40px auto;
 		text-align: center;
 		color: #505458;
+	}
+	.login_title{
+		font-size: 50px;
+		font-style: inherit;
+		font-family: "微软雅黑";
 	}
 </style>

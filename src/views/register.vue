@@ -1,73 +1,88 @@
 <template>
-	<div id="poster">
-		<div>		
-		<el-form 
-		label-width="0px" 
-		label-position="left"
-		class="register-container">
-		  <h3 class="register_title">
-			用户注册
-		  </h3>
-		  <el-form-item label="" prop="loginName">
-		    <el-input 
-			type="text"
-			autocomplete="off"
-			v-model="account"
-			placeholder="请输入用户账号"
-			prefix-icon="el-icon-user-solid"
-			></el-input>
-		  </el-form-item>
-		  <el-form-item label="" prop="name">
-		    <el-input 
-			type="text"
-			autocomplete="off"
-			v-model="usename"
-			placeholder="请输入昵称"
-			prefix-icon="el-icon-user-solid"
-			></el-input>
-		  </el-form-item>
-		  <el-form-item label="" prop="password">
-		    <el-input 
-			type="password" 
-			v-model="password" 
-			autocomplete="off"
-			placeholder="请输入密码"
-			prefix-icon="el-icon-lock"
-			></el-input>
-		  </el-form-item>
-		  <el-form-item label="" prop="checkPass">
-		    <el-input 
-			type="password" 
-			v-model="checkPass" 
-			autocomplete="off"
-			placeholder="请确认密码"
-			prefix-icon="el-icon-lock"></el-input>
-		  </el-form-item>
-		  <el-form-item>
-			  <el-button style="width: 100%;border:none;" @click="resetForm()">重置</el-button>
-		  </el-form-item>
-		  <el-form-item>
-		    <el-button type="primary"
-			 style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
-			 @click="register()">注册</el-button>
-			 </el-form-item>
-	
-
-
-			 <el-form-item>
-			 <el-button
-			 			type="primary"
-			 			style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
-			@click="toLogin()">登录</el-button>
-			 </el-form-item>
-		</el-form>
-		
-		</div>
-		
-			
-		
-
-	</div>
+	<div id="background">
+	<el-container>
+		  <el-header id="header" height="60px">
+		  	<div>
+		  	<el-row class="banner-box" type="flex" justify="space-between" :gutter="20">
+		  	  <el-col :span="2"><div><img  src="../assets/icon/logo1.png" /></div></el-col>
+		  	  <el-col :span="2"><div class="log1">注册</div></el-col>
+		  	</el-row>
+		  	</div>
+		  </el-header>
+	  <el-main>
+		  <div id="poster">
+		  	<div>		
+		  	<el-form 
+		  	label-width="0px" 
+		  	label-position="left"
+		  	class="register-container">
+			<el-col :span="2"><div><img  src="../assets/icon/icon.png" /></div></el-col>
+		  	  <h3 class="register_title">
+		  		用户注册
+		  	  </h3>
+		  	  <el-form-item label="" prop="loginName">
+		  	    <el-input 
+		  		type="text"
+		  		autocomplete="off"
+		  		v-model="account"
+		  		placeholder="请输入用户账号"
+		  		prefix-icon="el-icon-user-solid"
+		  		></el-input>
+		  	  </el-form-item>
+		  	  <el-form-item label="" prop="name">
+		  	    <el-input 
+		  		type="text"
+		  		autocomplete="off"
+		  		v-model="usename"
+		  		placeholder="请输入昵称"
+		  		prefix-icon="el-icon-user-solid"
+		  		></el-input>
+		  	  </el-form-item>
+		  	  <el-form-item label="" prop="password">
+		  	    <el-input 
+		  		type="password" 
+		  		v-model="password" 
+		  		autocomplete="off"
+		  		placeholder="请输入密码"
+		  		prefix-icon="el-icon-lock"
+		  		></el-input>
+		  	  </el-form-item>
+		  	  <el-form-item label="" prop="checkPass">
+		  	    <el-input 
+		  		type="password" 
+		  		v-model="checkPass" 
+		  		autocomplete="off"
+		  		placeholder="请确认密码"
+		  		prefix-icon="el-icon-lock"></el-input>
+		  	  </el-form-item>
+<!-- 		  	  <el-form-item>
+		  		  <el-button style="width: 100%;border:none;" @click="resetForm()">重置</el-button>
+		  	  </el-form-item> -->
+		  	  <el-form-item>
+		  	    <el-button type="primary" round
+		  		 style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
+		  		 @click="register()">注册</el-button>
+		  		 </el-form-item>
+		  
+		  
+		  
+		  		 <el-form-item>
+		  		 <el-button
+		  		 			type="primary" round
+		  		 			style="width: 100%;background-image:linear-gradient(to right,#55ffff, #0055ff);border:none;"
+		  		@click="toLogin()">登录</el-button>
+		  		 </el-form-item>
+		  	</el-form>
+		  	
+		  	</div>
+		  	
+		  		
+		  	
+		  
+		  </div>
+	  </el-main>
+	</el-container>
+</div>
 </template>
 
 <script>
@@ -129,11 +144,12 @@
 
 <style>
 	#poster{
+		background: url("../assets/poster.jpg") no-repeat;
 		background-position: center;
 		height: 100%;
 		width: 100%;
 		background-size: cover;
-		background-image: linear-gradient(to right,#00ffff, #aaffff);
+	/* 	background-image: linear-gradient(to right,#00ffff, #aaffff); */
 		position: fixed;
 		margin: 0px;
 		padding: 0px;
@@ -145,7 +161,7 @@
 		margin: 90px auto;
 		width: 350px;
 		padding: 35px 35px 15px 35px;
-		background: #61dafb;
+		background: #ffffff;
 		border: 1px solid #eaeaea;
 		box-shadow: 0 0 25px #cac6c6;
 	}
@@ -153,5 +169,15 @@
 		margin: 0px auto 40px auto;
 		text-align: center;
 		color: #505458;
+	}
+	.log1{
+		font-size: 30px;
+		font-style: inherit;
+		font-family: "微软雅黑";
+	}
+	.register_title{
+		font-size: 50px;
+		font-style: inherit;
+		font-family: "微软雅黑";
 	}
 </style>

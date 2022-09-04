@@ -63,7 +63,7 @@
 	</div>
 </template>
 <script>
-
+	import global from '@/global'
 	import axios from "axios"
 	import moment from 'moment'
 	import Vue from 'vue'
@@ -102,7 +102,8 @@
 			let vod_id = this.$route.params.id
 			axios({
 				//url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
-				url:'http://localhost:3000/get_detail',
+				//url:'http://localhost:3000/get_detail',
+				url:global.base_url+'get_detail',
 				params:{
 					vod_id:vod_id,
 				}

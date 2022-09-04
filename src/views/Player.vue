@@ -68,6 +68,7 @@
 </style>
 <script>
 	require('video.js/dist/video-js.css')
+	import global from '@/global'
 	import axios from "axios"
 	import videojs from "video.js";
 	import "videojs-contrib-hls";
@@ -90,7 +91,8 @@
 
 			axios({
 				//url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
-				url:'http://localhost:3000/get_url',
+				//url:'http://localhost:3000/get_url',
+				url:global.base_url+'get_url',
 				params:{
 					vod_id:vod_id,
 				}

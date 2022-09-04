@@ -6,32 +6,32 @@
 			<div id="container" >
 				<h2 style="text-align: left;height: 28px;">{{filmInfo.name}}</h2>
 				<div style="display: flex; flex-direction: row;">
-					<div id="flex"><span>2022</span></div>
+					<div v-if="filmInfo.year !=null" id="flex"><span>{{filmInfo.year}}</span></div>
 					<div id="flex"> <span>{{filmInfo.nation}}</span></div>
-					<div id="flex"> <span>{{filmInfo.category}}</span></div>
+					<div v-if="filmInfo.category != ''" id="flex"> <span>{{filmInfo.category}}</span></div>
 				</div> 
 				<div id="div1" >
 					<div class="line_3"  >
-					<span style="" >{{filmInfo.synopsis}}</span>
+					<span style="" >{{filmInfo.synopsis}}...</span>
 					</div>
 				
 					
 				<hr class="hr1">
-				<p style="font-weight: bolder ;">上映年份: {{year}}</p>
+				<p v-if="filmInfo.pubdate !=null" style="font-weight: bolder ;">上映年份: {{filmInfo.pubdate}}</p>
 
 				<p style="font-weight: bolder ;">导演: {{filmInfo.director}}</p>
 				
-				<div style="display: flex;">
-					<b>主演:</b><div style="display: flex;">
-						<div style="font-weight: bolder ;display:flex" v-for="item in filmInfo.actors">
-							<span style="margin-right: 3px;">{{item.name}}</span>
+				<div  style=" white-space : nowrap; display: flex;flex-direction: row;">
+					<b>主演:</b><div class="line_3" style="height: 40px; display: flex;flex-direction: row;">
+						<div  style="font-weight: bolder;" v-for="item in filmInfo.actors">
+							<p style="margin-right: 3px;">{{item}}</p>
 						</div>
 					</div>
 				</div>
-				<p style="font-weight: bolder ;">更新时间: {{filmInfo.premiereAt|dateFilter}} </p>
+				<!-- <p style="font-weight: bolder ;">更新时间: {{filmInfo.premiereAt|dateFilter}} </p> -->
 				<div class="img">
 					<el-row>
-					<router-link  to="/play" >
+					<router-link   :to="{name:'play',query: {index:0,vod_id: filmInfo.vod_id}}" >
 					<el-button id="button1" @click="show()" style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
 
 					
@@ -48,7 +48,7 @@
 			<h2 style="margin: 8px;" >选集播放</h2>
 			<div id="select" >
 				<div  v-for="(item,index) in datalist">
-					<router-link  to="/play" >
+					<router-link  :to="{name:'play',query: {index:index,vod_id: filmInfo.vod_id}}" >
 						<el-button  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
 					</router-link>
 			
@@ -63,6 +63,7 @@
 	</div>
 </template>
 <script>
+
 	import axios from "axios"
 	import moment from 'moment'
 	import Vue from 'vue'
@@ -84,8 +85,8 @@
 				update:"",
 				type:"",
 				//datalist:['https://s7.fsvod1.com/share/9KfxI1LpjNXphtC2'],
-				datalist:[1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,7,1,1,4,5,],
-				data:{}
+				datalist:[],
+				//data:{}
 			}
 		},
 		methods: {
@@ -98,16 +99,19 @@
 			console.log(this.$route.params.id)
 		},
 		mounted() {
+			let vod_id = this.$route.params.id
 			axios({
-				url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
-				headers: {
-					'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"1606697250632532718583809","bc":"440100"}',
-					'X-Host': 'mall.film-ticket.film.info'
+				//url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
+				url:'http://localhost:3000/get_detail',
+				params:{
+					vod_id:vod_id,
 				}
 			}).then((res) => {
-				console.log(res.data.data.film)
-				this.filmInfo = res.data.data.film
+				console.log(res.data)
+				this.filmInfo = res.data
+				this.datalist=res.data.urls
 			})
+
 		}
 
 	}

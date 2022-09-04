@@ -24,6 +24,7 @@ import Main from '../components/Main.vue'
 
  const routes = [
 	 {
+		 name:'main',
 		 path:'/main',
 		 component:Main,
 		 children:[
@@ -64,6 +65,10 @@ import Main from '../components/Main.vue'
 				component: Lunbo,			
 				
 			},
+			{
+				path: '/',
+				redirect: '/lunbo'
+			}
 			
 		 ]
 	 },
@@ -79,11 +84,11 @@ import Main from '../components/Main.vue'
 	 	path: '/register',
 	 	component: register,
 	 },
-
 	{
 		path: '/',
 		redirect: '/lunbo'
 	}
+
 	 ]
 
 const router = new VueRouter({

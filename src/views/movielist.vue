@@ -2,55 +2,53 @@
 <template>
 	<div>
 		<el-tabs v-model="activeName" class="tab-active">
-			<el-tab-pane label="电影首页" name="first">
-				<div class='first'>
+			<el-tab-pane :label="title" name="first">
+<!-- 				<div class='first'>
 					<div class="ziti">今日推荐</div>
-					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId'
+					<div v-for="item in movieList" style='margin-top:20px' :key='item.vod_id'
 						>
 						<div class="div1">
-							<!-- <a href="../" style="text-decoration:none;"> -->
-							<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
+							<router-link :to="{name:'detail',params: {id: item.vod_id}}" style="text-decoration:none;" >
 								<div class="div2">
-									<img :src="item.poster" />
+									<img :src="item.vod_pic" />
 								</div>
 								<div class='div3'>
-									<el-link :underline="false">{{item.name}}</el-link>
+									<el-link :underline="false">{{item.vod_name}}</el-link>
 								</div>
 								</router-link>
-							<!-- </a> -->
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class='second'>
 					<div class="ziti">
-						热门电影
+						热门{{title}}
 					</div>
-					<div v-for="item in movieList" style='margin-top:20px' :key='item.filmId'
+					<div v-for="item in movieList" style='margin-top:20px' :key='item.vod_id'
 						>
 						<div class="div1">
 							<!-- <a href="../" style="text-decoration:none;"> -->
-							<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
+							<router-link :to="{name:'detail',params: {id: item.vod_id}}" style="text-decoration:none;" >
 								<div class="div2">
-									<img :src="item.poster" />
+									<img :src="item.vod_pic" />
 								</div>
 								<div class='div3'>
-									<el-link :underline="false">{{item.name}}</el-link>
+									<el-link :underline="false">{{item.vod_name}}</el-link>
 								</div>
 							</router-link>
 						</div>
 					</div>
 				</div>
 			</el-tab-pane>
-			<el-tab-pane label="电影库" name="second">
-				<div v-for="item in movieList" :key='item.filmId' @click='handleChangePage(item.filmId)'>
+			<el-tab-pane label="影视库" name="second">
+				<div v-for="item in movieList" :key='item.vod_id' @click='handleChangePage(item.vod_id)'>
 					<div class="div1">
 						<!-- <a href="../" style="text-decoration:none;"> -->
-						<router-link :to="{name:'detail',params: {id: item.filmId}}" style="text-decoration:none;" >
+						<router-link :to="{name:'detail',params: {id: item.vod_id}}" style="text-decoration:none;" >
 							<div class="div2">
-								<img :src="item.poster" />
+								<img :src="item.vod_pic" />
 							</div>
 							<div class='div3'>
-								<el-link :underline="false">{{item.name}}</el-link>
+								<el-link :underline="false">{{item.vod_name}}</el-link>
 							</div>
 						</router-link>
 					</div>
@@ -63,21 +61,48 @@
 <script>
 	import axios from 'axios'
 	export default {
+		beforeCreate(){
+			console.log(this.$route.query.type_id)
+
+			
+		},
+
 		name: 'movielist',
 		data() {
 			return {
 				activeName: 'first',
+				title:'',
 				movieList: []
 			}
 		},
 		mounted() {
-			axios('https://m.maizuo.com/gateway?cityId=110100&pageNum=3&pageSize=20&type=1&k=1651774', {
-				headers: {
-					'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"1606697250632532718583809","bc":"440100"}',
-					'X-Host': 'mall.film-ticket.film.list'
+
+			let type_id = this.$route.query.type_id
+			if(type_id==1){
+				this.title='电影'
+			}else if(type_id==13){
+				this.title='电视剧'
+			}else if(type_id==30){
+				this.title='综艺'
+			}else if(type_id==25){
+				this.title='动漫'
+			}else if(type_id==20){
+				this.title='纪录片'
+			}
+			axios({
+				//url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
+				url:'http://localhost:3000/get_mv',
+				method: 'get',
+				params:{
+					type_id:type_id,
+					num:50
 				}
-			}).then(res => {
-				this.movieList = res.data.data.films
+
+			}).then((res) => {
+				console.log('请求成功')
+				console.log(res.data)
+				//this.filmInfo = res.data
+				this.movieList=res.data
 			})
 		},
 		methods: {

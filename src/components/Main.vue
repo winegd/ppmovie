@@ -8,10 +8,12 @@
 			  <el-col :span="2">
 				  <div>
 					 <router-link to='/login'>
-						<el-button type="primary" icon="el-icon-s-custom" round >登录/注册</el-button>
+						 
+						<el-button v-if="uname ==null" type="primary" icon="el-icon-s-custom" round >登录/注册</el-button>
 						<!-- <el-button type="primary">主要按钮</el-button> -->
+						
 					 </router-link>
-					  
+					  <span v-if="uname !=null"  >欢迎您：{{uname}}</span>
 					</div>
 				</el-col>
 			</el-row>	
@@ -60,7 +62,7 @@
 		
 		<el-container>
 	    <el-main>
-				<router-view ></router-view>
+				<router-view  :key='$route.fullPath' ></router-view>
 					
 		</el-main>
 		<!-- <el-footer id="header" height="60px"></el-footer> -->
@@ -76,7 +78,8 @@
 		data(){
 		return {
 				activeIndex: '1',
-				activeIndex2: '1'
+				activeIndex2: '1',
+				uname:null
 			  };
 		},
 		methods:{
@@ -91,22 +94,29 @@
 			},
 			menuSelect(key,keyPath){
 				if(key==1){
-					 this.$router.push({path:'/lunbo'})
+					 this.$router.push({name:'lunbo'})
 				}
 				else if(key==2){
-					 this.$router.push({path:'/movie'})
+					 this.$router.push({name:'movie',query:{type_id:1}})
 				}else if(key==3){
-					 this.$router.push({path:'/serial'})
+					  this.$router.push({name:'movie',query:{type_id:13}})
 				}
 				else if(key==4){
-					 this.$router.push({path:'/relax'})
+					  this.$router.push({name:'movie',query:{type_id:30}})
 				}
 				else if(key==5){
-					 this.$router.push({path:'/cartoon'})
+					  this.$router.push({name:'movie',query:{type_id:25}})
+				}
+				else if(key==6){
+					  this.$router.push({name:'movie',query:{type_id:20}})
 				}
 			}
 		},
-
+		mounted() {
+			this.uname= this.$route.query.uname
+			console.log(this.$route.query.uname)
+		
+		},
 		// watch: {
 		// 	$route(to,from){
 		// 		if(to.name == 'play'){

@@ -49,6 +49,7 @@
 		    },
 		    methods: {
 			login() {
+				var uname = this.username
 				if(this.username=='' || this.password==''){
 					this.$message({
 					          message: '用户名或密码为空',
@@ -62,7 +63,7 @@
 					          type: 'success',
 							  duration:'1000'
 					        });
-					this.$router.push({path:'/Main'})		
+					this.$router.push({path:'/main',query:{uname:uname}})		
 				}else{
 					this.$message({
 					          message: '用户名或密码错误',

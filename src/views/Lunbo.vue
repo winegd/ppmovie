@@ -37,6 +37,7 @@
 
 <script>
 	import lunbo_movie from '@/views/lunbo_movie.vue'
+	import global from '@/global'
 	export default{
 		name:'Lunbo',
 		components:{

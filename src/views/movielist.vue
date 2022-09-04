@@ -59,6 +59,7 @@
 </template>
 
 <script>
+	import global from '@/global'
 	import axios from 'axios'
 	export default {
 		beforeCreate(){
@@ -91,7 +92,8 @@
 			}
 			axios({
 				//url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
-				url:'http://localhost:3000/get_mv',
+				//url:'http://localhost:3000/get_mv',
+				url:global.base_url+'get_mv',
 				method: 'get',
 				params:{
 					type_id:type_id,

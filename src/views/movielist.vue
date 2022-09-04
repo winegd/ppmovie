@@ -90,6 +90,12 @@
 			}else if(type_id==20){
 				this.title='纪录片'
 			}
+			else if(type_id==9){
+				this.title='科幻片'
+			}
+			else if(type_id==26){
+				this.title='日漫'
+			}
 			axios({
 				//url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
 				//url:'http://localhost:3000/get_mv',

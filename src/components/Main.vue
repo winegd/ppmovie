@@ -5,6 +5,10 @@
 			<div>
 			<el-row class="banner-box" type="flex" justify="space-between" :gutter="20">
 			  <el-col :span="2"><div><img  src="../assets/icon/logo1.png" /></div></el-col>
+			  
+<!--  -->
+			  
+			  
 			  <el-col :span="2">
 				  <div>
 					 <router-link to='/login'>
@@ -49,12 +53,21 @@
 			      </el-menu-item>
 				  <el-menu-item index="5">
 				    <i class="el-icon-delete"></i>&nbsp;
-				    <span slot="title">动漫</span>
+				    <span slot="title">国漫</span>
+				  </el-menu-item>
+				  <el-menu-item index="9">
+				    <i class="el-icon-delete"></i>&nbsp;
+				    <span slot="title">日漫</span>
 				  </el-menu-item>
 				  <el-menu-item index="6">
 				    <i class="el-icon-phone"></i>
 				    <span slot="title">纪录片</span>
 				  </el-menu-item>
+				  <el-menu-item index="8">
+				    <i class="el-icon-phone"></i>
+				    <span slot="title">科幻片</span>
+				  </el-menu-item>
+
 			    </el-menu>
 				
 
@@ -109,6 +122,12 @@
 				}
 				else if(key==6){
 					  this.$router.push({name:'movie',query:{type_id:20}})
+				}
+				else if(key==8){
+					  this.$router.push({name:'movie',query:{type_id:9}})
+				}
+				else if(key==9){
+					  this.$router.push({name:'movie',query:{type_id:26}})
 				}
 			}
 		},

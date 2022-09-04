@@ -1,8 +1,8 @@
 <template>
 	<div>
-	  <el-carousel height="520px" :interval="2000" trigger="click" >
+	  <el-carousel height="520px" :interval="2000"  >
     <el-carousel-item v-for="(item,index) in list" :key="index" >
-	  <img style="width: 1400px;height: 520px;"  @click="Todetail(item.name)" :src="item.src" />
+	  <img style="width: 1400px;height: 520px;"  @click="Todetail(index)" :src="item.src" />
     </el-carousel-item>
   </el-carousel>
   
@@ -37,7 +37,7 @@
 
 <script>
 	import lunbo_movie from '@/views/lunbo_movie.vue'
-	import global from '@/global'
+
 	export default{
 		name:'Lunbo',
 		components:{
@@ -46,25 +46,25 @@
 		data(){
 			return{
 				list:[
-					{'src':require('../assets/lunbo/lunbo1.jpg'),
-					'detail':'该剧以时尚杂志社为背景，，她认为',
-					'name':'lunbo1'},
-					{'src':require('../assets/lunbo/lunbo2.jpg'),
-					'detail':'该剧以时尚杂志社为背景，，她认为',
-					'name':'lunbo2'},
-					{'src':require('../assets/lunbo/lunbo3.jpg'),
-					'detail':'该剧以时尚杂志社为背景，，她认为',
-					'name':'lunbo3'},
-					{'src':require('../assets/lunbo/lunbo4.jpg'),
-					'detail':'该剧以时尚杂志社为背景，，她认为',
-					'name':'lunbo4'},
+					{'src':require('../assets/lunbo/lunbo1.jpg')},
+					{'src':require('../assets/lunbo/lunbo2.jpg')},
+					{'src':require('../assets/lunbo/lunbo3.jpg')},
+					{'src':require('../assets/lunbo/lunbo4.jpg')}
 					
 				]
 			}
 		},
 		methods:{
-			Todetail(res){
-				alert(res)
+			Todetail(index){
+				if(index==0){
+					this.$router.push({name:'detail',params:{id:19}})
+				}else if(index==1){
+					this.$router.push({name:'detail',params:{id:6926}})
+				}else if(index==2){
+					this.$router.push({name:'detail',params:{id:17208}})
+				}else if(index==3){
+					this.$router.push({name:'detail',params:{id:1450}})
+				}
 			}
 		}
 	}

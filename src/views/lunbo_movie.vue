@@ -7,7 +7,7 @@
 						>
 						<div class="div1">
 							<!-- <a href="../" style="text-decoration:none;"> -->
-							<router-link :to="{name:'detail',params: {id: item.vod_id}}" style="text-decoration:none;" >
+							<router-link :to="{name:'detail',params: {id: item.id}}" style="text-decoration:none;" >
 								<div class="div2">
 									<img :src="item.vod_pic" />
 								</div>

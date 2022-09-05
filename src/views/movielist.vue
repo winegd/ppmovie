@@ -27,7 +27,7 @@
 						>
 						<div class="div1">
 							<!-- <a href="../" style="text-decoration:none;"> -->
-							<router-link :to="{name:'detail',params: {id: item.vod_id}}" style="text-decoration:none;" >
+							<router-link :to="{name:'detail',params: {id: item.id}}" style="text-decoration:none;" >
 								<div class="div2">
 									<img :src="item.vod_pic" />
 								</div>
@@ -43,7 +43,7 @@
 				<div v-for="item in movieList" :key='item.vod_id' @click='handleChangePage(item.vod_id)'>
 					<div class="div1">
 						<!-- <a href="../" style="text-decoration:none;"> -->
-						<router-link :to="{name:'detail',params: {id: item.vod_id}}" style="text-decoration:none;" >
+						<router-link :to="{name:'detail',params: {id: item.id}}" style="text-decoration:none;" >
 							<div class="div2">
 								<img :src="item.vod_pic" />
 							</div>
@@ -78,7 +78,7 @@
 		},
 		mounted() {
 
-			let type_id = this.$route.query.type_id
+			let type_id = this.$route.params.type_id
 			if(type_id==1){
 				this.title='电影'
 			}else if(type_id==13){

@@ -85,7 +85,7 @@
 			mv:lunbo_movie
 		},
 		mounted() {
-			var vod_id = this.$route.params.vod_id
+			var id = this.$route.params.id
 			var flag = this.$route.params.index
 			this.tag = this.$route.params.index
 			console.log(this.tag)
@@ -98,7 +98,7 @@
 				//url:'http://localhost:3000/get_url',
 				url:global.base_url+'get_url',
 				params:{
-					vod_id:vod_id,
+					id:id,
 				}
 			}).then((res) => {
 				console.log(res.data)
@@ -139,13 +139,27 @@
 				var that = this
 				this.player=new hlsjsPlayer({
 				  id:'mse',
+				   lang: 'zh-cn',
+				   volume:1,
 				  url: that.url,
-
+				  pip: true,
+				  miniplayer: true,
+				    miniplayerConfig: {
+				      bottom: 200,
+				      right: 0,
+				      width: 320,
+				      height: 180
+				    },
+				keyShortcut: 'on',
+				 keyShortcutStep: { //设置调整步长
+					currentTime: 10, //播放进度调整步长，默认10秒
+					volume: 0.1 //音量调整步长，默认0.1
+				  },
 				  width:"790px",
 				  height:"460px",
 				  videoInit: true,
 				  playsinline: true,
-				  playbackRate: [0.5, 1, 1.5, 2,3] //传入倍速可选数组
+				  playbackRate: [0.5, 1, 1.5, 2,3], //传入倍速可选数组
 				});
 			},
 	// 		getVideo() {

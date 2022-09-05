@@ -30,7 +30,7 @@ import Main from '../components/Main.vue'
 		 children:[
 			 {
 				name:'movie',
-			 	path: '/movie',
+			 	path: '/movie/:type_id',
 			 	component: movielist,					 
 			 },
 			 {
@@ -40,7 +40,7 @@ import Main from '../components/Main.vue'
 			 },
 			 {
 			 	name:'play',
-			 	path: '/play/:index/:vod_id',
+			 	path: '/play/:index/:id',
 			 	component: Player,
 			 },
 			{

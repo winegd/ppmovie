@@ -3,13 +3,27 @@
 	<el-container>
 		<el-header id="header" height="60px">
 			<div>
-			<el-row class="banner-box" type="flex" justify="space-between" :gutter="20">
-			  <el-col :span="2"><div><img  src="../assets/icon/logo1.png" /></div></el-col>
-			  
-<!--  -->
-			  
-			  
-			  <el-col :span="2">
+			<el-row class="banner-box" type="flex" justify="space-between" >
+			  <el-col :span="4" ><div>
+			  <router-link to="/">
+			  <img  src="../assets/icon/logo1.png" />
+			  </router-link>
+			  </div>
+			  </el-col>
+			<el-col :span="16">
+				<div>
+				<el-autocomplete
+				  type="text"
+				  prefix-icon="el-icon-search"
+				  v-model="content"
+				  :fetch-suggestions="querySearchAsync"
+				  placeholder="请输入电影名称"
+				  style="width: 700px; "
+				  @select="handleSelect"
+				></el-autocomplete>
+				</div>
+			</el-col>
+			  <el-col :span="4">
 				  <div  >
 					 <router-link to='/login'>
 						 
@@ -87,48 +101,81 @@
 </template>
 
 <script>
+	import global from '@/global'
+	import axios from 'axios'
 	export default{
 		name:"Main",
 		data(){
 		return {
 				activeIndex: '1',
 				activeIndex2: '1',
-				uname:null
+				uname:null,
+				content:"",
+				movies_list: [],
 			  };
 		},
 		methods:{
-			handleSelect(key, keyPath) {
-				console.log(key, keyPath);
-			  },
-			handleOpen(key, keyPath) {
-				  console.log(key, keyPath);
-				},
-			handleClose(key, keyPath) {
-				console.log(key, keyPath);
-			},
+		  querySearchAsync(queryString, cb) {
+				var that = this
+				var movies_list=this.movies_list
+			// var results =
+			if(queryString!=''){
+				axios({
+				//url: `https://m.maizuo.com/gateway?filmId=${this.$route.params.id}&k=5501344`,
+				//url:'http://localhost:3000/get_mv',
+				url:global.base_url+'get_search',
+				method: 'get',
+				params:{
+					vod_name:queryString,
+				}
+			
+			}).then((res) => {
+				// console.log('请求成功')
+				// console.log(res)
+				if(res.data.code==1){
+					// console.log(res.data.data)
+					cb(res.data.data)
+				}
+			})	
+			}else{
+				// cb(movies_list)
+			}
+
+			
+			// console.log(queryString)
+		  },
+		  handleSelect(item) {
+			this.$router.push({name:'detail',params: {id: item.id}})
+		  },
+			// handleOpen(key, keyPath) {
+			// 	  console.log(key, keyPath);
+			// 	},
+			// handleClose(key, keyPath) {
+			// 	console.log(key, keyPath);
+			// },
 			menuSelect(key,keyPath){
 				if(key==1){
 					 this.$router.push({name:'lunbo'})
 				}
 				else if(key==2){
-					 this.$router.push({name:'movie',query:{type_id:1}})
+					 this.$router.push({name:'movie',params:{type_id:1}})
 				}else if(key==3){
-					  this.$router.push({name:'movie',query:{type_id:13}})
+					  this.$router.push({name:'movie',params:{type_id:13}})
 				}
 				else if(key==4){
-					  this.$router.push({name:'movie',query:{type_id:30}})
+					  this.$router.push({name:'movie',params:{type_id:30}})
 				}
 				else if(key==5){
-					  this.$router.push({name:'movie',query:{type_id:25}})
+					  this.$router.push({name:'movie',params:{type_id:25}})
 				}
 				else if(key==6){
-					  this.$router.push({name:'movie',query:{type_id:20}})
+					  this.$router.push({name:'movie',params:{type_id:20}})
 				}
 				else if(key==8){
-					  this.$router.push({name:'movie',query:{type_id:9}})
+					  this.$router.push({name:'movie',params:{type_id:9}})
 				}
 				else if(key==9){
-					  this.$router.push({name:'movie',query:{type_id:26}})
+					  this.$router.push({name:'movie',params:{type_id:26}})
 				}
 			}
 		},

@@ -10,7 +10,7 @@
 			  
 			  
 			  <el-col :span="2">
-				  <div>
+				  <div  >
 					 <router-link to='/login'>
 						 
 						<el-button v-if="uname ==null" type="primary" icon="el-icon-s-custom" round >登录/注册</el-button>
@@ -19,6 +19,7 @@
 					 </router-link>
 					  <span v-if="uname !=null"  >欢迎您：{{uname}}</span>
 					</div>
+					
 				</el-col>
 			</el-row>	
 				
@@ -157,8 +158,9 @@
 		/* position: absolute; */
 	    padding: 0;
 	    height: calc(100vh - 60px);
-		padding-left: 30px;
-		padding-right: 50px;
+/* 		padding-left: 30px;
+		padding-right: 50px; */
+		
 	}
 
 

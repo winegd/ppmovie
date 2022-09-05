@@ -2,8 +2,8 @@
 	<div style="display: flex;flex-direction: column;" >
 	<div id="player_container">
 		<div id="player">
-			
-			<video
+			<div id="mse"></div>
+<!-- 			<video
 			    id="my-video" 
 			    controls
 				class="video-js vjs-big-play-centered"
@@ -12,7 +12,7 @@
 				poster="../assets/poster2.png"
 				autoplay: false
 					>
-			</video>
+			</video> -->
 			<!-- <vi :url="url" ></vi> -->
 
 		</div>
@@ -20,12 +20,12 @@
 
 		<div id="side_container" >
 			<h2 >{{moviename}}</h2>
-			<h4 style="margin: 8px;" >选集播放</h4>
+			<h3 style="margin: 8px;" >选集播放</h3>
 			<div v-if="datalist !=null" id="select" >
 				<div  v-for="(item,index) in datalist">
 				<!-- <router-link :to="{name:'play',params: {movie_name:moviename.name,url: item}}" > -->
-						<el-button v-if="tag!=index"  @click="select(index)"  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
-						<el-button v-if="tag==index" type="primary" @click="select(index)"  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
+						<el-button  v-if="tag!=index"  @click="select(index)"  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
+						<el-button  v-if="tag==index" type="primary" @click="select(index)"  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
 				<!-- </router-link> -->
 				</div>
 			</div> 
@@ -46,6 +46,7 @@
 	<!-- class="vjs-default-skin" -->
 </template>
 <style>
+
 	#side_container{
 		display: flex;
 		flex-direction:column;
@@ -73,17 +74,20 @@
 	import videojs from "video.js";
 	import "videojs-contrib-hls";
 	import lunbo_movie from '@/views/lunbo_movie.vue'
+	import 'xgplayer';
+	import hlsjsPlayer from 'xgplayer-hls.js'
+	// import '/xgplayer/src/skin/index.js';
 	export default{
 		beforeCreate(){
-			console.log(this.$route.query.vod_id)
+			console.log(this.$route.params.vod_id)
 		},
 		components:{
 			mv:lunbo_movie
 		},
 		mounted() {
-			var vod_id = this.$route.query.vod_id
-			var flag = this.$route.query.index
-			this.tag = this.$route.query.index
+			var vod_id = this.$route.params.vod_id
+			var flag = this.$route.params.index
+			this.tag = this.$route.params.index
 			console.log(this.tag)
 			// var url = this.$route.params.url
 			// this.moviename=this.$route.params.movie_name
@@ -131,40 +135,54 @@
 		  msg: String
 		},
 		methods:{
-			getVideo() {
+			getVideo(){
 				var that = this
-			   this.player=videojs(
-				   "my-video",
-				   {
-					   hls: true,
-					   aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-					   fluid: true, 
-					   preload: 'auto',
-					   bigPlayButton: true,
-					   textTrackDisplay: false,
-					   posterImage: true,
-					   errorDisplay: false,
-					   language: 'zh-CN',
-					   notSupportedMessage: '此视频暂无法播放，请稍后再试',
-					   controlBar:true,
-					   sources:[ // 视频源
-					         {
-					             src: that.url,
-					         }
-					     ]
+				this.player=new hlsjsPlayer({
+				  id:'mse',
+				  url: that.url,
 
-				   },
+				  width:"790px",
+				  height:"460px",
+				  videoInit: true,
+				  playsinline: true,
+				  playbackRate: [0.5, 1, 1.5, 2,3] //传入倍速可选数组
+				});
+			},
+	// 		getVideo() {
+	// 			var that = this
+	// 		   this.player=videojs(
+	// 			   "my-video",
+	// 			   {
+	// 				   hls: true,
+	// 				   aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+	// 				   fluid: true, 
+	// 				   preload: 'auto',
+	// 				   bigPlayButton: true,
+	// 				   textTrackDisplay: false,
+	// 				   posterImage: true,
+	// 				   errorDisplay: false,
+	// 				   language: 'zh-CN',
+	// 				   notSupportedMessage: '此视频暂无法播放，请稍后再试',
+	// 				   controlBar:true,
+	// 				   sources:[ // 视频源
+	// 				         {
+	// 				             src: that.url,
+	// 				         }
+	// 				     ]
+
+	// 			   },
 				   
-			   );
+	// 		   );
 	
-				},
+	// 			},
 				select(index){
 					console.log(index)
-					// this.player.dispose()
-					//this.url=this.datalist[index]
-					this.player.src({src:this.datalist[index] , type: "application/x-mpegURL"});
+					
+					// this.player.src({src:this.datalist[index] , type: "application/x-mpegURL"});
+					this.player.src=this.datalist[index]
 					this.player.play()
-					// this.getVideo()
+					this.tag=index
+					
 					
 				}
 
@@ -175,7 +193,8 @@
 		},
 		beforeDestroy() {
 		      if (this.player != null) {
-		        this.player.dispose() // dispose()会直接删除Dom元素
+		       // this.player.dispose() // dispose()会直接删除Dom元素
+			   this.player.destroy()
 		      }
 		    }
 

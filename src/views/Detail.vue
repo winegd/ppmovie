@@ -36,7 +36,7 @@
 				<!-- <p style="font-weight: bolder ;">更新时间: {{filmInfo.premiereAt|dateFilter}} </p> -->
 				<div class="img">
 					<el-row>
-					<router-link   :to="{name:'play',query: {index:0,vod_id: filmInfo.vod_id}}" >
+					<router-link   :to="{name:'play',params: {index:0,vod_id: filmInfo.vod_id}}" >
 					<el-button id="button1" @click="show()" style="background:linear-gradient(to right, rgb(255, 113, 31) 0%, rgb(229, 9, 20) 100%) ;" type="primary" round>
 
 					
@@ -53,7 +53,7 @@
 			<h2 style="margin: 8px;" >选集播放</h2>
 			<div id="select" >
 				<div  v-for="(item,index) in datalist">
-					<router-link  :to="{name:'play',query: {index:index,vod_id: filmInfo.vod_id}}" >
+					<router-link  :to="{name:'play',params: {index:index,vod_id: filmInfo.vod_id}}" >
 						<el-button  style=" width: 100px;margin: 5px;">第{{index+1}}集</el-button>
 					</router-link>
 			

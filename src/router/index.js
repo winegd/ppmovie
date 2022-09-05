@@ -40,7 +40,7 @@ import Main from '../components/Main.vue'
 			 },
 			 {
 			 	name:'play',
-			 	path: '/play',
+			 	path: '/play/:index/:vod_id',
 			 	component: Player,
 			 },
 			{
